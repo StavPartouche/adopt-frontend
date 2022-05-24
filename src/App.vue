@@ -2,6 +2,7 @@
   <div id="app">
     <onboarding v-if="showOnBoarding"></onboarding>
     <router-view v-else/>
+    
   </div>
 </template>
 
