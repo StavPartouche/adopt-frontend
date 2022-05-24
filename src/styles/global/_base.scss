@@ -1,0 +1,28 @@
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    direction: rtl;
+}
+
+body {
+    font-size: 16px;
+    font-weight: normal;
+    letter-spacing: 0;
+    line-height: 20px;
+    margin: 0;
+    height: 100vh;
+}
+
+#app>main {
+    display: flex;
+    flex-direction: column;
+}
+
+h1,h2,h3,h4,h5,p {
+    margin: 0;
+}

@@ -1,0 +1,12 @@
+<template>
+  <section class="main-container home-page">
+    <h1>Home</h1>
+  </section>
+</template>
+
+<script>
+
+export default {
+  name: "home"
+};
+</script>
