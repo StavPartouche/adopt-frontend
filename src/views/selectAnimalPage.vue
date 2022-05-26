@@ -1,0 +1,77 @@
+<template>
+  <section class="select-animal-page">
+    <div v-if="showLayer" @click.stop="showLayer = false" class="layer">
+      <img :src="handIcon" alt="">
+      <h2>לחצו לבחירת החיה</h2>
+    </div>
+    <div v-if="!showAnimalAgeOptions" class="temp-container">
+      <button @click="handleSelect('dog')">כלב</button>
+    </div>
+    <div v-else class="select-age-container">
+      <h2 class="title">בחרו את גילו של הכלב אותו תרצו לגדל</h2>
+      <div @click="selectAgeOption(idx)" class="age-option" :class="{'highlight-option':highlightOption(idx)}" v-for="(opt, idx) in ageOptions" :key="idx">
+        <h3 class="age-option-title">{{opt.title}}</h3>
+        <p class="age-option-desc">{{opt.desc}}</p>
+      </div>
+      <button @click="handlePickAnimal" class="global-confirm-btn select-age-btn" :class="{'disable-confirm-btn': !selectedAgeOption}">המשך</button>
+    </div>
+    <img @click="confirmSelectAnimal" v-if="animal && !showAnimalAgeOptions" class="confirm-btn" :src="buttonIcon" alt="">
+  </section>
+</template>
+
+<script>
+
+export default {
+  name: "selectAnimalPage",
+  data(){
+    return {
+      animal: null,
+      showLayer: true,
+      showAnimalAgeOptions: false,
+      ageOptions: [
+        { title: 'גורים', desc: 'עד גיל שנה'},
+        { title: 'בוגרים', desc: 'מעל גיל שנה'},
+        { title: 'מבוגרים', desc: 'מעל גיל 8'},
+      ],
+      selectedAgeOption: null
+    }
+  },
+  methods: {
+    handleSelect(animal){
+      this.animal = animal
+    },
+    confirmSelectAnimal(){
+      //get relevent age options
+      this.showAnimalAgeOptions = true
+    },
+    selectAgeOption(idx){
+      this.selectedAgeOption = this.ageOptions[idx]
+    },
+    highlightOption(idx){
+      if(!this.selectedAgeOption) return false
+      return this.selectedAgeOption.title === this.ageOptions[idx].title
+    },
+    handlePickAnimal(){
+      if(!this.animal || !this.selectedAgeOption) return
+      console.log('Picked!!!');
+    }
+  },
+  computed:{
+    handIcon(){
+      return require('../assets/icons/hand.svg')
+    },
+    buttonIcon(){
+      return require('../assets/icons/vButton.svg')
+    }
+  }
+};
+</script>
+
+<style scoped>
+  .temp-container{
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+</style>

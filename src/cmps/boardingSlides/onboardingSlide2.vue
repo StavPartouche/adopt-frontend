@@ -1,9 +1,9 @@
 <template>
-  <section class="onboardingSlide2 full-width">
+  <section class="onboardingSlide onboardingSlide2 full-width">
     <div class="slides-img"></div>
     <p>רוצים ללמוד על בעל חיים?</p>
     <h2 class="onboarding-instructions">בואו ללמוד כמה דברים שחשוב לדעת</h2>
-    <button class="onboarding-btn" @click="showNext">המשך</button>
+    <button class="global-confirm-btn" @click="showNext">המשך</button>
   </section>
 </template>
 

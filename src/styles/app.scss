@@ -1,4 +1,5 @@
 /// GLOBALS
+@import './global/typography';
 @import './global/base';
 @import './global/helpers';
 
@@ -7,3 +8,4 @@
 
 /// VIEWS
 @import './views/home';
+@import './views/selectAnimalPage';

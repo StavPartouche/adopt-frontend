@@ -16,6 +16,8 @@ body {
     line-height: 20px;
     margin: 0;
     height: 100vh;
+    background-color: #E5E5E5;
+    font-family: SimplerPro-Regular;
 }
 
 #app>main {
@@ -25,4 +27,14 @@ body {
 
 h1,h2,h3,h4,h5,p {
     margin: 0;
+}
+
+h3{
+    font-family: SimplerPro-Bold;
+    font-size: 28px;
+}
+
+p{
+    font-family: SimplerPro-Regular;
+    font-size: 20px;
 }

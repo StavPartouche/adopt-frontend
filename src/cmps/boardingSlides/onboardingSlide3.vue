@@ -1,18 +1,18 @@
 <template>
-  <section class="onboardingSlide2 full-width">
+  <section class="onboardingSlide onboardingSlide3 full-width">
     <div class="slides-img"></div>
-    <h2 class="onboarding-instructions">ענו על שאלה בכל יום וצברו נקודות</h2>
-    <button class="onboarding-btn" @click="showNext">המשך</button>
+    <h2 class="onboarding-instructions">בחרו את החיה שתרצו לגדל</h2>
+    <button class="global-confirm-btn" @click="showNext">המשך</button>
   </section>
 </template>
 
 <script>
 
 export default {
-  name: "onboardingSlide2",
+  name: "onboardingSlide3",
   methods:{
       showNext(){
-        this.$emit('showNextSlide', 'onboardingSlide3')
+        this.$emit('showNextSlide', 'onboardingSlide4')
       }
   }
 };

@@ -1,21 +1,32 @@
 <template>
   <div id="app">
-    <onboarding v-if="showOnBoarding"></onboarding>
-    <router-view v-else/>
-    
+    <router-view/>
   </div>
 </template>
 
 <script>
 
-import onboarding from '@/cmps/onboarding.vue'
+import  storageService  from '@/services/storage.service'
 
 export default {
-  components: { onboarding },
   data(){
     return {
       showOnBoarding: true
     }
+  },
+  methods: {
+    goToSelectAnimal(){
+      this.showOnBoarding = false
+      this.$router.push('/select-animal')
+    }
+  },
+  created(){
+    const data = storageService.load('data')
+    if(data){
+      this.$router.push('/home')
+      return
+    }
+    this.$router.push('/onboarding').catch(()=>{})
   }
 };
 </script>

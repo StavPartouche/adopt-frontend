@@ -20,7 +20,7 @@
     }
     .slides-img{
         width: 100%;
-        height: 654px;
+        height: 578px;
         background-color: red;
         margin-bottom: 41px;
     }
@@ -43,7 +43,7 @@
     }
 }
 
-.onboardingSlide1, .onboardingSlide2{
+.onboardingSlide{
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -54,7 +54,6 @@
 .onboardingSlide2{
     .slides-img{
         width: 100%;
-        height: 654px;
         background-color: red;
         margin-bottom: 12px;
     }
@@ -64,6 +63,20 @@
         margin-bottom: 12px;
     }
     .onboarding-instructions{
-        margin-bottom: 32px;
+        margin-bottom: 38px;
+    }
+}
+
+.onboardingSlide5{
+    .slides-img{
+        margin-bottom: 35px;
+    }
+    p{
+        font-size: 20px;
+        font-weight: 400;
+        margin-bottom: 12px;
+    }
+    .onboarding-instructions{
+        margin-bottom: 42.5px;
     }
 }
