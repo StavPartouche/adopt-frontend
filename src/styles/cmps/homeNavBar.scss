@@ -1,0 +1,16 @@
+.home-nav-bar{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 11.5px 19.5px 0px;
+    height: 4%;
+
+    .home-nav-bar-select{
+        display: flex;
+        align-items: center;
+
+        p{
+            margin-left: 9px;
+        }
+    }
+}

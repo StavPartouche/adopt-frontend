@@ -6,7 +6,7 @@ function save(key, entity) {
     localStorage.setItem(key, JSON.stringify(entity));
 }
 
-export default {
+export const storageService = {
     save,
     load
 };

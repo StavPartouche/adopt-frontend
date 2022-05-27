@@ -2,13 +2,19 @@ import Vue from "vue";
 import VueRouter from "vue-router";
 import selectAnimalPage from '@/views/selectAnimalPage'
 import onborading from '@/views/onboardingPage'
+import homePage from '@/views/homePage'
 
 Vue.use(VueRouter);
 
 const routes = [
   {
-    path: "/select-animal",
+    path: "/home",
     name: "home",
+    component: homePage
+  },
+  {
+    path: "/select-animal",
+    name: "select-animal",
     component: selectAnimalPage
   },
   {

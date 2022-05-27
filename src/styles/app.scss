@@ -1,10 +1,12 @@
 /// GLOBALS
 @import './global/typography';
+@import './global/variables';
 @import './global/base';
 @import './global/helpers';
 
 /// CMPS
 @import './cmps/onboarding';
+@import './cmps/homeNavBar';
 
 /// VIEWS
 @import './views/home';

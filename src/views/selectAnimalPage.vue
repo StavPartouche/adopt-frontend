@@ -21,6 +21,8 @@
 
 <script>
 
+import { storageService } from '@/services/storage.service'
+
 export default {
   name: "selectAnimalPage",
   data(){
@@ -53,7 +55,12 @@ export default {
     },
     handlePickAnimal(){
       if(!this.animal || !this.selectedAgeOption) return
-      console.log('Picked!!!');
+      const newAnimal = {
+        animalType: this.animal,
+        animalAge: this.selectedAgeOption
+      }
+      storageService.save('data', newAnimal)
+      this.$router.push('/home')
     }
   },
   computed:{
