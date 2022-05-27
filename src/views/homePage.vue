@@ -15,11 +15,11 @@
           <img :src="lightBulbIcon" alt="" />
           <p>טיפים</p>
         </div>
-        <button class="start-btn">
+        <button class="start-btn" :class="{'active': isAvailableeGame}">
             התחל
             <div class="start-game-modal">
                 <p>המשחק נפתח</p>
-                <div class="white-square"></div>
+                <div v-if="isAvailableeGame" class="white-square"></div>
             </div>
         </button>
         <div class="info-btn">
@@ -57,6 +57,9 @@ export default {
     lightBulbIcon() {
       return require("./../assets/icons/lightBulb.svg");
     },
+    isAvailableeGame(){
+        return true
+    }
   },
 };
 </script>
