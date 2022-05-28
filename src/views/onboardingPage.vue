@@ -27,9 +27,6 @@ export default {
     goToSelectAnimal(){
       this.$emit('goToSelectAnimal')
     }
-  },
-  created(){
-    console.log('HEREEE');
   }
 };
 </script>

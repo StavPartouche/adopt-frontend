@@ -9,7 +9,7 @@
     </div>
     <div v-else class="select-age-container">
       <h2 class="title">בחרו את גילו של הכלב אותו תרצו לגדל</h2>
-      <div @click="selectAgeOption(idx)" class="age-option" :class="{'highlight-option':highlightOption(idx)}" v-for="(opt, idx) in ageOptions" :key="idx">
+      <div @click="selectAgeOption(idx)" class="age-option" :class="{'highlight-option-bgc':highlightOption(idx)}" v-for="(opt, idx) in ageOptions" :key="idx">
         <h3 class="age-option-title">{{opt.title}}</h3>
         <p class="age-option-desc">{{opt.desc}}</p>
       </div>
@@ -22,6 +22,7 @@
 <script>
 
 import { storageService } from '@/services/storage.service'
+import { animalService } from '@/services/animal.service'
 
 export default {
   name: "selectAnimalPage",
@@ -30,17 +31,14 @@ export default {
       animal: null,
       showLayer: true,
       showAnimalAgeOptions: false,
-      ageOptions: [
-        { title: 'גורים', desc: 'עד גיל שנה'},
-        { title: 'בוגרים', desc: 'מעל גיל שנה'},
-        { title: 'מבוגרים', desc: 'מעל גיל 8'},
-      ],
+      ageOptions: null,
       selectedAgeOption: null
     }
   },
   methods: {
     handleSelect(animal){
       this.animal = animal
+      this.ageOptions = animalService.getAnimalAgeOptions(animal)
     },
     confirmSelectAnimal(){
       //get relevent age options
@@ -56,8 +54,10 @@ export default {
     handlePickAnimal(){
       if(!this.animal || !this.selectedAgeOption) return
       const newAnimal = {
-        animalType: this.animal,
-        animalAge: this.selectedAgeOption
+        type: this.animal,
+        age: this.selectedAgeOption,
+        currQuest: 0,
+        points: 0
       }
       storageService.save('data', newAnimal)
       this.$router.push('/home')

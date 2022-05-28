@@ -21,8 +21,12 @@
     opacity: 0.2;
 }
 
-.highlight-option{
-    outline: 1px solid #FFDE5E;
+.highlight-option-border{
+    outline: 1px solid $yellow;
+}
+
+.highlight-option-bgc{
+    background-color: #FFDE5E !important;
 }
 
 .global-title {

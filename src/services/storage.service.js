@@ -1,5 +1,5 @@
 function load(key) {
-    return localStorage.getItem(key);
+    return JSON.parse(localStorage.getItem(key))
 }
 
 function save(key, entity) {

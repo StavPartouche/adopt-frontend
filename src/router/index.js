@@ -3,6 +3,7 @@ import VueRouter from "vue-router";
 import selectAnimalPage from '@/views/selectAnimalPage'
 import onborading from '@/views/onboardingPage'
 import homePage from '@/views/homePage'
+import testPage from '@/views/testPage'
 
 Vue.use(VueRouter);
 
@@ -21,6 +22,11 @@ const routes = [
     path: "/onboarding",
     name: "onboarding",
     component: onborading
+  },
+  {
+    path: "/test",
+    name: "test",
+    component: testPage
   },
 ];
 

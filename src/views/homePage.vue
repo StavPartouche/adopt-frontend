@@ -15,7 +15,7 @@
           <img :src="lightBulbIcon" alt="" />
           <p>טיפים</p>
         </div>
-        <button class="start-btn" :class="{'active': isAvailableeGame}">
+        <button @click="goToTest" class="start-btn" :class="{'active': isAvailableeGame}">
             התחל
             <div class="start-game-modal">
                 <p>המשחק נפתח</p>
@@ -38,6 +38,11 @@ import { storageService } from "@/services/storage.service";
 export default {
   name: "homePage",
   components: { homeNavBar },
+  methods:{
+    goToTest(){
+      this.$router.push('/test')
+    }
+  },
   computed: {
     points() {
       return 0;
