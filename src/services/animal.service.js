@@ -19,7 +19,15 @@ const data = {
                                 {
                                     txt: 'להביא את כלי השחיטה ולהתכונן לארוחה טעימה',
                                     isCorrect: false
-                                }
+                                },
+                                {
+                                    txt: 'להביא את הלהביור ולהתכונן לארוחה טעימה',
+                                    isCorrect: false
+                                },
+                                {
+                                    txt: 'להביא את גרזן ולהתכונן לארוחה טעימה',
+                                    isCorrect: false
+                                },
                             ],
                             explanations:[
                                 {
@@ -63,8 +71,12 @@ function getAnimalAgeOptions(animal){
         }
     })
 }
+function getCurrTest(petDetails) {
+    return data[petDetails.type][petDetails.ageIdx].tests[petDetails.currTest]
+}
 
 export const animalService = {
     getAnimalData,
-    getAnimalAgeOptions
+    getAnimalAgeOptions,
+    getCurrTest
 }

@@ -32,7 +32,8 @@ export default {
       showLayer: true,
       showAnimalAgeOptions: false,
       ageOptions: null,
-      selectedAgeOption: null
+      selectedAgeOption: null,
+      selectedAgeOptionIdx: null
     }
   },
   methods: {
@@ -46,6 +47,7 @@ export default {
     },
     selectAgeOption(idx){
       this.selectedAgeOption = this.ageOptions[idx]
+      this.selectedAgeOptionIdx = idx
     },
     highlightOption(idx){
       if(!this.selectedAgeOption) return false
@@ -55,8 +57,8 @@ export default {
       if(!this.animal || !this.selectedAgeOption) return
       const newAnimal = {
         type: this.animal,
-        age: this.selectedAgeOption,
-        currQuest: 0,
+        ageIdx: this.selectedAgeOptionIdx,
+        currTest: 0,
         points: 0
       }
       storageService.save('data', newAnimal)
