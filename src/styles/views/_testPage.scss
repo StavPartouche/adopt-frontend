@@ -8,11 +8,24 @@
     flex-direction: column;
     align-items: center;
     padding: 0 16px;
+    position: relative;
     
 
     .test-progress-bar{
         margin-top: 33px;
         margin-bottom: 23px;
+        width: 228px;
+        height: 6px;
+        border-radius: 25.5px;
+        background-color: #F1F1F1;
+
+        .curr-progress{
+            height: 100%;
+            border-radius: 25.5px;
+            background-color: #323232;
+            width: 0%;
+            transition: all 0.5s;
+        }
     }
 
     .test-quest-counter{
@@ -31,7 +44,8 @@
     }
 
     .test-options-container{
-        height: 408px;
+        min-height: 408px;
+        width: 100%;
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -55,5 +69,27 @@
                 font-size: 20px;
             }
         }
+    }
+    .multi-select-container{
+        display: grid;
+        grid-template-columns: auto auto;
+
+        .multi-select-option{
+            width: 165px;
+        }
+        .option-txt{
+            font-size: 18px !important;
+        }
+    }
+    .ans-container{
+        height: 100%;
+        width: 100%;
+        background-color: blue;
+        position: absolute;
+        transform: translateY(101%);
+        transition:all 1s;
+    }
+    .show-ans-container{
+        transform: translateY(0);
     }
 }

@@ -40,6 +40,58 @@ const data = {
                                 },
                             ]
                         },
+                        {
+                            type: 'multi-select',//select or multi-select (in "select" 1 answers is true, in "multi-select" multipele of them can be true)
+                            txt:'איזה ציוד צריך לרכוש',
+                            answers:[
+                                {
+                                    txt: 'בושם',
+                                    isCorrect: false
+                                },
+                                {
+                                    txt: 'יורה כדורים',
+                                    isCorrect: false
+                                },
+                                {
+                                    txt: 'מיטה',
+                                    isCorrect: true
+                                },
+                                {
+                                    txt: 'קערת מים',
+                                    isCorrect: true
+                                },
+                                {
+                                    txt: 'מזון',
+                                    isCorrect: true
+                                },
+                                {
+                                    txt: 'חטיפי אילוף',
+                                    isCorrect: true
+                                },
+                                {
+                                    txt: 'קולר ורצועה',
+                                    isCorrect: true
+                                },
+                                {
+                                    txt: 'תיק נשיאה',
+                                    isCorrect: false
+                                },
+                                {
+                                    txt: 'בגדים לכלב',
+                                    isCorrect: false
+                                },
+                                {
+                                    txt: 'עצמות וצעצועים',
+                                    isCorrect: true
+                                },
+                            ],
+                            explanations:[
+                                {
+                                    title:'מזון, מיטה, קערות, קולר ורצועה, צעצועים, עצמות וחטיפים.',
+                                    desc: 'כחלק מההיערכות אתם צפויים לרכוש מספר פריטים שהכלב יזדקק להם כדי להתאקלם ולהרגיש חלק מהמשפחה. אלו הם שמונת הפריטים שחשוב ונחוץ שיהיה בבית לפני הגעתו. כמובן ובמידה ויש אין צורך לקנות חדש.'
+                                }
+                            ]
+                        },
                     ]
                 }
             ]
