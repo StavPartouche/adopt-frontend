@@ -7,7 +7,11 @@
         <img :src="heartIcons" alt="" />
       </div>
       <div class="home-start-timer-container">
-        <img :src="dogHomeIcon" alt="" />
+        <img :src="dogHomeIcon" alt="" loop="false"/>
+        <!-- <lottie-animation
+          path="animations/heart.json"
+          loop="false"
+        /> -->
         <p>המשחק הבא יתחיל בעוד {{ nextGameTime }}</p>
       </div>
       <div class="home-play-container">
@@ -33,10 +37,11 @@
 
 <script>
 import homeNavBar from "@/cmps/home/homeNavBar.vue";
-import { storageService } from "@/services/storage.service";
+// import LottieAnimation from "lottie-vuejs/src/LottieAnimation.vue";
 
 export default {
   name: "homePage",
+  // components: { homeNavBar, LottieAnimation },
   components: { homeNavBar },
   methods:{
     goToTest(){
@@ -45,7 +50,7 @@ export default {
   },
   computed: {
     points() {
-      return 0;
+      return this.$store.getters.pet.points
     },
     nextGameTime() {
       return "08:23";

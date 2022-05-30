@@ -81,15 +81,39 @@
             font-size: 18px !important;
         }
     }
-    .ans-container{
+    .warpper{
         height: 100%;
         width: 100%;
-        background-color: blue;
+        background-color: #323232CC;
         position: absolute;
-        transform: translateY(101%);
-        transition:all 1s;
     }
-    .show-ans-container{
-        transform: translateY(0);
+
+    .ans{
+        width: 90%;
+        height: fit-content;
+        background-color: #FF6B6B;
+        position: absolute;
+        bottom: 0;
+        border-radius: 31px;
+        transform: translateY(100%);
+        transition: all 0.5s;
+        padding: 12px 44px;
+        line-height: 21px;
+        color: white;
+        
+        .title{
+            font-family: SimplerPro-Bold;
+            margin-bottom: 5px;
+            font-size: 22px;
+        }
+
+        p{
+            font-size: 22px;
+            margin-bottom: 15px;
+        }
+    }
+
+    .show-ans{
+        transform: translateY(-31px);
     }
 }

@@ -10,16 +10,20 @@
         <p class="option-txt">{{answer.txt}}</p>
       </div>
     </div>
-    <button @click="showAns" class="global-confirm-btn select-age-btn" :class="{'disable-confirm-btn': !selectedAns}">המשך</button>
-    <div class="ans-container" :class="{'show-ans-container': isShowAns}">
-      <button @click="onNextQuest">NEXT!</button>
+    <button @click="showAns" class="global-confirm-btn select-age-btn" :class="{'disable-confirm-btn': !isActiveBtn}">המשך</button>
+    <div v-if="isShowAns" @click.stop="onNextQuest" class="warpper">
+    </div>
+    <div v-if="currQuest" class="ans" :class="{'show-ans': isShowAns}">
+      <h2 class="title">{{ansTxt}}</h2>
+      <p>{{currQuest.explanations[0].title}}</p>
+      <p>{{currQuest.explanations[0].desc}}</p>
+      <button class="global-confirm-btn" @click="onNextQuest">המשך</button>
     </div>
   </section>
 </template>
 
 <script>
 
-import { storageService } from "@/services/storage.service";
 import { animalService } from "@/services/animal.service";
 
 export default {
@@ -31,13 +35,29 @@ export default {
       testDetails: null,
       selectedAns: null, 
       selectedAnsIdx: null,
-      isShowAns: false
+      isShowAns: false,
+      isCorrectAns: null
     }
   },
   methods:{
     showAns(){
+      if(!this.isMultiSelect){
+        if(this.selectedAns.isCorrect){
+          this.$store.commit({ type: 'updatePetPoints' })
+        }
+        this.isCorrectAns = this.selectedAns.isCorrect
+      }else{
+        const isAllCorrect = this.selectedAnsIdx.every(ansIdx => {
+          return this.currQuest.answers[ansIdx].isCorrect
+        })
+        if(isAllCorrect && this.corretAnsLength === this.selectedAnsIdx.length ){
+          this.$store.commit({ type: 'updatePetPoints' })
+          this.isCorrectAns = true
+        }else{
+          this.isCorrectAns = false
+        }
+      }
       this.isShowAns = true
-      // check if ans correct and add style acordingly
     },
     selectAns(ansIdx){
       if(!this.isMultiSelect){
@@ -50,6 +70,7 @@ export default {
           this.selectedAnsIdx.splice(idx,1)
           return
         }
+        if(this.selectedAnsIdx.length === this.corretAnsLength) return
         this.selectedAnsIdx.push(ansIdx)
       }
     },
@@ -66,7 +87,8 @@ export default {
     },
     onNextQuest(){
       if(this.currQuestIdx === this.questLength - 1){
-        console.log('Done!');
+        this.$store.commit({ type: 'updatePetCurrTest' })
+        this.$router.push('/home')
         return
       }
       this.reset()
@@ -79,6 +101,9 @@ export default {
     }
   },
   computed:{
+    pet() {
+      return this.$store.getters.pet
+    },
     questLength(){
       return this.testDetails.questions.length
     },
@@ -89,17 +114,36 @@ export default {
       return this.testDetails.questions[this.currQuestIdx].type === 'multi-select'
     },
     pageBgcClass(){
-      return `test-bgc-${this.currQuestIdx}`
+      return `test-bgc-0`
+      // return `test-bgc-${this.currQuestIdx}`
     },
     progress(){
       const per = ((this.currQuestIdx + 1) * 100) / this.questLength
       return `width: ${per}%`
+    },
+    ansTxt(){
+      if(!this.isCorrectAns) return 'טעיתם... הפעם לא הרווחתם לבבות. התשובה הנכונה היא:'
+      return 'תשובה נכונה! הרווחתם 5 לבבות.'
+    },
+    isActiveBtn(){
+      if(!this.isMultiSelect){
+        return this.selectedAns
+      }else{
+        return this.selectedAnsIdx && this.selectedAnsIdx.length
+      }
+    },
+    corretAnsLength(){
+      if(!this.currQuest) return null
+      let correctAnsLtngh = 0
+      this.currQuest.answers.forEach(ans => {
+        if(ans.isCorrect) correctAnsLtngh++
+      });
+      return correctAnsLtngh
     }
   },
   created(){
-    this.petDetails = storageService.load('data')
-    this.testDetails = animalService.getCurrTest(this.petDetails)
-    console.log(this.testDetails);
+    this.testDetails = animalService.getCurrTest(this.pet)
+    if(!this.testDetails) this.$router.push('/home')
   }
 };
 </script>

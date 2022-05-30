@@ -21,7 +21,6 @@
 
 <script>
 
-import { storageService } from '@/services/storage.service'
 import { animalService } from '@/services/animal.service'
 
 export default {
@@ -42,7 +41,6 @@ export default {
       this.ageOptions = animalService.getAnimalAgeOptions(animal)
     },
     confirmSelectAnimal(){
-      //get relevent age options
       this.showAnimalAgeOptions = true
     },
     selectAgeOption(idx){
@@ -55,13 +53,13 @@ export default {
     },
     handlePickAnimal(){
       if(!this.animal || !this.selectedAgeOption) return
-      const newAnimal = {
+      const pet = {
         type: this.animal,
         ageIdx: this.selectedAgeOptionIdx,
         currTest: 0,
         points: 0
       }
-      storageService.save('data', newAnimal)
+      this.$store.commit({ type: 'updatePet', pet })
       this.$router.push('/home')
     }
   },
