@@ -1,8 +1,10 @@
 <template>
   <section class="onboardingSlide onboardingSlide4 full-width">
     <div class="slides-img"></div>
-    <h2 class="onboarding-instructions">ענו על שאלה בכל יום וצברו נקודות</h2>
-    <button class="global-confirm-btn" @click="showNext">המשך</button>
+    <div class="text-container">
+      <h2 class="onboarding-instructions">ענו על שאלה בכל יום וצברו נקודות</h2>
+      <button class="global-confirm-btn" @click="showNext">המשך</button>
+    </div>
   </section>
 </template>
 

@@ -1,11 +1,17 @@
 <template>
   <section class="select-animal-page">
     <div v-if="showLayer" @click.stop="showLayer = false" class="layer">
-      <img :src="handIcon" alt="">
       <h2>לחצו לבחירת החיה</h2>
     </div>
-    <div v-if="!showAnimalAgeOptions" class="temp-container">
-      <button @click="handleSelect('dog')">כלב</button>
+    <div v-if="!showAnimalAgeOptions" class="select-container">
+      <img @click="handleSelect('dog')" class="dog-icon" :src="dogIcon" alt="">
+      <img @click="handleSelect('rabbit')" class="rabbit-icon" :src="rabbitIcon" alt="">
+      <img @click="handleSelect('fish')" class="fish-icon" :src="fishIcon" alt="">
+      <img @click="handleSelect('cat')" class="cat-icon" :src="catIcon" alt="">
+      <img @click="handleSelect('bird')" class="bird-icon" :src="birdIcon" alt="">
+      <img class="heart1" :src="smallHeartIcon" alt="">
+      <img class="heart2" :src="smallHeartIcon" alt="">
+      <!-- <img class="heart2" :src="smallHeartIcon" alt=""> -->
     </div>
     <div v-else class="select-age-container">
       <h2 class="title">בחרו את גילו של הכלב אותו תרצו לגדל</h2>
@@ -64,21 +70,27 @@ export default {
     }
   },
   computed:{
-    handIcon(){
-      return require('../assets/icons/hand.svg')
-    },
     buttonIcon(){
       return require('../assets/icons/vButton.svg')
-    }
+    },
+    dogIcon(){
+      return require('../assets/icons/dogHome.svg')
+    },
+    catIcon(){
+      return require('../assets/icons/cat.svg')
+    },
+    rabbitIcon(){
+      return require('../assets/icons/rabbit.svg')
+    },
+    fishIcon(){
+      return require('../assets/icons/fish.svg')
+    },
+    birdIcon(){
+      return require('../assets/icons/bird.svg')
+    },
+    smallHeartIcon(){
+      return require('../assets/icons/smallHeart.svg')
+    },
   }
 };
 </script>
-
-<style scoped>
-  .temp-container{
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-</style>

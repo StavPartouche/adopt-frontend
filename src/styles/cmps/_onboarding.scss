@@ -20,9 +20,16 @@
     }
     .slides-img{
         width: 100%;
-        height: 578px;
+        height: 445px;
         background-color: red;
         margin-bottom: 41px;
+    }
+    .text-container{
+        width: 100%;
+        padding: 0 16px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
     }
     .onboarding-instructions{
         width: 246px;
@@ -49,6 +56,17 @@
     align-items: center;
     justify-content: flex-start;
     text-align: center;
+}
+
+.onboardingSlide1{
+    height: 100%;
+    justify-content: center;
+    img{
+        margin-bottom: 50px;
+    }
+    h1{
+        font-size: 80px;
+    }
 }
 
 .onboardingSlide2{

@@ -1,7 +1,7 @@
 <template>
   <section class="onboardingSlide onboardingSlide1">
-    <h2 class="welcome">ברוך הבא לאדופט</h2>
-    <div class="welcome-img"></div>
+    <img :src="logoIcon" alt="">
+    <h1>קליקר</h1>
   </section>
 </template>
 
@@ -13,6 +13,11 @@ export default {
       showNext(){
         this.$emit('showNextSlide', 'onboardingSlide2')
       }
+  },
+  computed: {
+    logoIcon(){
+      return require('./../../assets/icons/logo.svg')
+    }
   },
   created(){
     setTimeout(() => {
