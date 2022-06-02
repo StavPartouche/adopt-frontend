@@ -4,18 +4,16 @@
     <div class="home-page-main">
       <div class="home-points-container">
         <h2 class="home-points">{{ points }}</h2>
-        <img :src="heartIcons" alt="" />
+        <img :src="powIcon" alt="" />
       </div>
       <div class="home-start-timer-container">
-        <img :src="dogHomeIcon" alt="" loop="false"/>
-        <!-- <lottie-animation
-          path="animations/heart.json"
-          loop="false"
-        /> -->
+        <lottie-animation
+          path="animations/test.json"
+        />
         <p>המשחק הבא יתחיל בעוד {{ nextGameTime }}</p>
       </div>
       <div class="home-play-container">
-        <div class="info-btn">
+        <div @click="$router.push('/tips')" class="info-btn">
           <img :src="lightBulbIcon" alt="" />
           <p>טיפים</p>
         </div>
@@ -26,7 +24,7 @@
                 <div v-if="isAvailableeGame" class="white-square"></div>
             </div>
         </button>
-        <div class="info-btn">
+        <div @click="$router.push('/class')" class="info-btn">
           <img :src="hatIcon" alt="" />
           <p>שיעורים</p>
         </div>
@@ -37,16 +35,16 @@
 
 <script>
 import homeNavBar from "@/cmps/home/homeNavBar.vue";
-// import LottieAnimation from "lottie-vuejs/src/LottieAnimation.vue";
+import LottieAnimation from "lottie-vuejs/src/LottieAnimation.vue";
 
 export default {
   name: "homePage",
-  // components: { homeNavBar, LottieAnimation },
-  components: { homeNavBar },
+  components: { homeNavBar, LottieAnimation },
+  // components: { homeNavBar },
   methods:{
     goToTest(){
       this.$router.push('/test')
-    }
+    },
   },
   computed: {
     points() {
@@ -57,6 +55,9 @@ export default {
     },
     heartIcons() {
       return require("./../assets/icons/heart.svg");
+    },
+    powIcon() {
+      return require("./../assets/icons/pow.svg");
     },
     dogHomeIcon() {
       return require("./../assets/icons/dogHome.svg");

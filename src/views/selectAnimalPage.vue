@@ -1,5 +1,5 @@
 <template>
-  <section class="select-animal-page">
+  <section class="select-animal-page" :class="{'yellow-bgc': showAnimalAgeOptions}">
     <div v-if="showLayer" @click.stop="showLayer = false" class="layer">
       <h2>לחצו לבחירת החיה</h2>
     </div>
@@ -11,17 +11,17 @@
       <img @click="handleSelect('bird')" class="bird-icon" :src="birdIcon" alt="">
       <img class="heart1" :src="smallHeartIcon" alt="">
       <img class="heart2" :src="smallHeartIcon" alt="">
-      <!-- <img class="heart2" :src="smallHeartIcon" alt=""> -->
     </div>
     <div v-else class="select-age-container">
       <h2 class="title">בחרו את גילו של הכלב אותו תרצו לגדל</h2>
-      <div @click="selectAgeOption(idx)" class="age-option" :class="{'highlight-option-bgc':highlightOption(idx)}" v-for="(opt, idx) in ageOptions" :key="idx">
+      <div @click="selectAgeOption(idx)" class="age-option" :class="{'highlight-option-border':highlightOption(idx)}" v-for="(opt, idx) in ageOptions" :key="idx">
         <h3 class="age-option-title">{{opt.title}}</h3>
         <p class="age-option-desc">{{opt.desc}}</p>
       </div>
       <button @click="handlePickAnimal" class="global-confirm-btn select-age-btn" :class="{'disable-confirm-btn': !selectedAgeOption}">המשך</button>
     </div>
-    <img @click="confirmSelectAnimal" v-if="animal && !showAnimalAgeOptions" class="confirm-btn" :src="buttonIcon" alt="">
+    <button @click="confirmSelectAnimal" class="confirm-btn" v-if="animal && !showAnimalAgeOptions">{{aniamlName}}</button>
+    <!-- <img @click="confirmSelectAnimal" v-if="animal && !showAnimalAgeOptions" class="confirm-btn" :src="buttonIcon" alt=""> -->
   </section>
 </template>
 
@@ -63,13 +63,24 @@ export default {
         type: this.animal,
         ageIdx: this.selectedAgeOptionIdx,
         currTest: 0,
-        points: 0
+        points: 0,
+        savedTips: []
       }
       this.$store.commit({ type: 'updatePet', pet })
       this.$router.push('/home')
     }
   },
   computed:{
+    aniamlName(){
+      const map = {
+        dog: 'כלב',
+        cat: 'חתול',
+        bird: 'ציפור',
+        fish: 'דג',
+        rabbit: 'ארנב'
+      }
+      return map[this.animal]
+    },
     buttonIcon(){
       return require('../assets/icons/vButton.svg')
     },

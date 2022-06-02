@@ -6,8 +6,10 @@
     align-items: center;
     justify-content: flex-start;
     scroll-behavior: smooth;
+    background-color: $gray;
     .full-width{
         width: 100%;
+        height: 100%;
     }
     .welcome{
         padding-top: 192px;
@@ -23,6 +25,7 @@
         height: 445px;
         background-color: red;
         margin-bottom: 41px;
+        height: 75%;
     }
     .text-container{
         width: 100%;
