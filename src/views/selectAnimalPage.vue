@@ -3,7 +3,7 @@
     <div v-if="showLayer" @click.stop="showLayer = false" class="layer">
       <h2>לחצו לבחירת החיה</h2>
     </div>
-    <div v-if="!showAnimalAgeOptions" class="select-container">
+    <div v-if="!showAnimalAgeOptions && !showInput" class="select-container">
       <img @click="handleSelect('dog')" class="dog-icon" :src="dogIcon" alt="">
       <img @click="handleSelect('rabbit')" class="rabbit-icon" :src="rabbitIcon" alt="">
       <img @click="handleSelect('fish')" class="fish-icon" :src="fishIcon" alt="">
@@ -12,7 +12,12 @@
       <img class="heart1" :src="smallHeartIcon" alt="">
       <img class="heart2" :src="smallHeartIcon" alt="">
     </div>
-    <div v-else class="select-age-container">
+    <div v-if="showInput" class="select-age-container input-container">
+      <h2 class="title">מה השם של חיית המחמד?</h2>
+      <input type="text" v-model="name">
+      <button @click="handlePickName" class="global-confirm-btn select-age-btn" :class="{'disable-confirm-btn': !name}">המשך</button>
+    </div>
+    <div v-if="showAnimalAgeOptions" class="select-age-container">
       <h2 class="title">בחרו את גילו של הכלב אותו תרצו לגדל</h2>
       <div @click="selectAgeOption(idx)" class="age-option" :class="{'highlight-option-border':highlightOption(idx)}" v-for="(opt, idx) in ageOptions" :key="idx">
         <h3 class="age-option-title">{{opt.title}}</h3>
@@ -20,7 +25,7 @@
       </div>
       <button @click="handlePickAnimal" class="global-confirm-btn select-age-btn" :class="{'disable-confirm-btn': !selectedAgeOption}">המשך</button>
     </div>
-    <button @click="confirmSelectAnimal" class="confirm-btn" v-if="animal && !showAnimalAgeOptions">{{aniamlName}}</button>
+    <button @click="confirmSelectAnimal" class="confirm-btn" v-if="animal && !showAnimalAgeOptions && !showInput">{{aniamlName}}</button>
     <!-- <img @click="confirmSelectAnimal" v-if="animal && !showAnimalAgeOptions" class="confirm-btn" :src="buttonIcon" alt=""> -->
   </section>
 </template>
@@ -38,7 +43,9 @@ export default {
       showAnimalAgeOptions: false,
       ageOptions: null,
       selectedAgeOption: null,
-      selectedAgeOptionIdx: null
+      selectedAgeOptionIdx: null,
+      name: null,
+      showInput: false
     }
   },
   methods: {
@@ -47,7 +54,7 @@ export default {
       this.ageOptions = animalService.getAnimalAgeOptions(animal)
     },
     confirmSelectAnimal(){
-      this.showAnimalAgeOptions = true
+      this.showInput = true
     },
     selectAgeOption(idx){
       this.selectedAgeOption = this.ageOptions[idx]
@@ -60,14 +67,25 @@ export default {
     handlePickAnimal(){
       if(!this.animal || !this.selectedAgeOption) return
       const pet = {
+        name: this.name,
         type: this.animal,
-        ageIdx: this.selectedAgeOptionIdx,
+        ageIdx: this.selectedAgeOptionIdx || 0,
         currTest: 0,
         points: 0,
         savedTips: []
       }
       this.$store.commit({ type: 'updatePet', pet })
       this.$router.push('/home')
+    },
+    handlePickName(){
+      if(!this.name) return 
+      if(this.ageOptions.length === 1){
+        this.selectedAgeOption = true
+        this.handlePickAnimal()
+      }else{
+        this.showInput = false
+        this.showAnimalAgeOptions = true
+      }
     }
   },
   computed:{

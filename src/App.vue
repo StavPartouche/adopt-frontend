@@ -21,7 +21,7 @@ export default {
     }
   },
   created(){
-    const pet = storageService.load('data')
+    const pet = storageService.loadLastPet()
     if(pet){
       this.$store.commit({ type: 'updatePet', pet })
       this.$router.push('/home')

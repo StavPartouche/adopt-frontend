@@ -17,15 +17,15 @@ export default new Vuex.Store({
   mutations: {
     updatePet(state, { pet }){
       state.pet = pet
-      storageService.save('data', state.pet)
+      storageService.savePet(pet)
     },
     updatePetPoints(state){
       state.pet.points += 5
-      storageService.save('data', state.pet)
+      storageService.savePet(state.pet)
     },
     updatePetCurrTest(state){
       state.pet.currTest++
-      storageService.save('data', state.pet)
+      storageService.savePet(state.pet)
     },
   },
   actions: {},
