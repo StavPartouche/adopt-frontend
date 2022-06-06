@@ -5,15 +5,23 @@
     display: flex;
     flex-direction: column;
     color: #323232;
+    position: relative;
 
     .home-page-main{
-        height: 83.5%;
+        .txt-container{
+            margin-top: 40px;
+            margin-bottom: 20px;
+            p{
+                margin-bottom: 10px;
+            }
+        }
         .home-points-container{
-            height: 35%;
             width: 100%;
             display: flex;
             align-items: center;
             justify-content: center;
+            margin-top: 105px;
+            margin-bottom: 170px;
             .home-points{
                 margin-left: 15px;
                 font-size: 100px;
@@ -25,7 +33,6 @@
             }
         }
         .home-start-timer-container{
-            height: 65%;
             transform: translateY(-109px);
             p{
                 color: white;
@@ -34,16 +41,120 @@
                 transform: translateY(-100px);
             }
         }
+        .lessons-list{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            transform: translateY(-73px);
+            margin-bottom: 90px;
+    
+            .lesson{
+                width: 306px;
+                height: 94px;
+                background-color: white;
+                display: flex;
+                align-items: center;
+                justify-content: flex-start;
+                box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.04);
+                border-radius: 8px;
+                position: relative;
+                margin-bottom: 34px;
+    
+                .lesson-num{
+                    margin-right: 25px;
+                    margin-left: 21px;
+                    font-size: 36px;
+                }
+                .info-container{
+                    margin-top: 13.5px;
+                    h3{
+                        font-size: 18px;
+                        margin-bottom: 4px;
+                        transform: translateY(-5px);
+                    }
+                    .sub-info{
+                        display: flex;
+                        align-items: center;
+                        justify-content: flex-start;
+                        transform: translateY(-5px);
+                        margin-bottom: 5px;
+    
+                        img{
+                            margin-left: 8px;
+                        }
+                        p{
+                            font-size: 14px;
+                            color: #989898;
+                            letter-spacing: 0.2px;
+                        }
+                    }
+                }
+                .black{
+                    height: 100%;
+                    width: 19px;
+                    background-color: black;
+                    position: absolute;
+                    left: 0;
+                    border-top-left-radius: 8px;
+                    border-bottom-left-radius: 8px;
+                }
+    
+                .flow{
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    justify-content: flex-start;
+                    position: absolute;
+                    right: -42px;
+                    top: 36px;
+                    .circle{
+                        width: 20px;
+                        height: 20px;
+                        background-color: #323232;
+                        border-radius: 50%;
+                    }
+                    .empty{
+                        background-color: #FFF3C6;
+                        border: 1px solid #BCB083;
+                    }
+                    .line{
+                        width: 1px;
+                        height: 107px;
+                        background-color: white;
+                    }
+                }
+    
+                &:last-child {
+                    .line{
+                        display: none;
+                    }
+                }
+    
+                .lock-icon{
+                    position: absolute;
+                    bottom: -19px;
+                    left: 36px;
+                }
+            }
+    
+            .dis-lesson{
+                opacity: 0.6;
+            }
+        }
     }
 
 
     .home-play-container{
-        height: 15%;
         background-color: #fff;
         display: flex;
         align-items: center;
         justify-content: space-between;
         padding: 0 45px;
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+        height: 100px;
+        transform: translateX(0px) !important;
         .info-btn{
             cursor: pointer;
             img{

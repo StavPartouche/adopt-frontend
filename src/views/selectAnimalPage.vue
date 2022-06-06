@@ -72,7 +72,8 @@ export default {
         ageIdx: this.selectedAgeOptionIdx || 0,
         currTest: 0,
         points: 0,
-        savedTips: []
+        savedTips: [],
+        achievs: []
       }
       this.$store.commit({ type: 'updatePet', pet })
       this.$router.push('/home')

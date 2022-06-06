@@ -1,0 +1,70 @@
+.achiev-page{
+    position: relative;
+    height: 100%;
+    width: 100%;
+    .main{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+
+        .title{
+            font-size: 32px;
+            font-family: EditorSans-Semibold;
+            margin-bottom: 10px;
+        }
+
+        .sub{
+            font-size: 20px;
+        }
+
+        .animal{
+            position: absolute;
+            top: 15%;
+        }
+
+        .left{
+            left: 0;
+        }
+        .right{
+            right: 0;
+            transform: scaleX(-1);
+        }
+    }
+    .achiev-container{
+        position: absolute;
+        bottom: 0;
+        z-index: 10;
+        // background-color: #323232;
+        width: 100%;
+        height: 69%; //65!
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+        color: white;
+
+        .achiev{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 120px;
+
+            img{
+                margin-bottom: 5px;
+                width: 60px;
+                height: 60px;
+            }
+
+            .achive-title{
+                font-size: 20px;
+            }
+
+            .achive-sub{
+                font-size: 16px;
+                font-weight: 400;
+            }
+        }
+    }
+}

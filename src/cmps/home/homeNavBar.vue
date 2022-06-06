@@ -1,7 +1,7 @@
 <template>
   <section class="home-nav-bar">
       <div class="home-nav-bar-select">
-          <p @click="toggleShowOpt">קליקר</p>
+          <p class="txt" @click="toggleShowOpt">קליקר</p>
           <img class="arrow" :class="{'rotate': isShowOpt}" @click="toggleShowOpt" :src="arrowDown" alt="">
         <div class="options" :class="{'show': isShowOpt}">
           <div @click="handleSwitchPet(pet.name)" v-for="pet in petsToShow" :key="pet.name" class="option">

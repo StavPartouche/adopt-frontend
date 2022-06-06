@@ -5,7 +5,7 @@ import onborading from '@/views/onboardingPage'
 import homePage from '@/views/homePage'
 import testPage from '@/views/testPage'
 import tipsPage from '@/views/tipsPage'
-import classPage from '@/views/classPage'
+import achievPage from '@/views/achievPage'
 import lessonDetailsPage from '@/views/lessonDetailsPage'
 
 Vue.use(VueRouter);
@@ -37,9 +37,9 @@ const routes = [
     component: tipsPage
   },
   {
-    path: "/class",
-    name: "class",
-    component: classPage
+    path: "/achievement",
+    name: "achievement",
+    component: achievPage
   },
   {
     path: "/lesson/:idx",
