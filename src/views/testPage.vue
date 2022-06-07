@@ -29,7 +29,9 @@
       </div>
     </div>
     <carousel v-else perPage="1" navigationEnabled :paginationEnabled="false">
-      <slide v-for="(answer, idx) in currQuest.answers" :key="idx"> {{answer.txt}} </slide>
+      <slide v-for="(answer, idx) in currQuest.answers" :key="idx"> 
+        {{answer.txt}} 
+      </slide>
     </carousel>
     <p v-if="this.isComplete">{{ currQuest.end }}</p>
     <button
