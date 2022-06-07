@@ -30,7 +30,10 @@
     </div>
     <carousel v-else perPage="1" navigationEnabled :paginationEnabled="false">
       <slide v-for="(answer, idx) in currQuest.answers" :key="idx"> 
-        {{answer.txt}} 
+        <div class="slide" :class="{'highlight-option-slide': highlightAns(idx)}">
+          <p>{{answer.txt}}</p>
+          <img @click="selectAns(idx)" :src="vIcon" alt="">
+        </div>
       </slide>
     </carousel>
     <p v-if="this.isComplete">{{ currQuest.end }}</p>
@@ -197,6 +200,9 @@ export default {
       });
       return correctAnsLtngh;
     },
+    vIcon(){
+      return require('@/assets/icons/vButton.svg')
+    }
   },
   created() {
     this.testDetails = animalService.getCurrTest(this.pet);
