@@ -14,7 +14,7 @@
           </div>
         </div>
       </div>
-      <img :src="bellIcon" alt="">
+      <img @click="$router.push('/notifications')" :src="bellIcon" alt="">
   </section>
 </template>
 

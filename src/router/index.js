@@ -6,6 +6,7 @@ import homePage from '@/views/homePage'
 import testPage from '@/views/testPage'
 import tipsPage from '@/views/tipsPage'
 import achievPage from '@/views/achievPage'
+import notifPage from '@/views/notifPage'
 import lessonDetailsPage from '@/views/lessonDetailsPage'
 
 Vue.use(VueRouter);
@@ -40,6 +41,11 @@ const routes = [
     path: "/achievement",
     name: "achievement",
     component: achievPage
+  },
+  {
+    path: "/notifications",
+    name: "notifications",
+    component: notifPage
   },
   {
     path: "/lesson/:idx",
