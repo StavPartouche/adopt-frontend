@@ -49,7 +49,8 @@
       <h2 class="title" :class="{ 'green-txt': isCorrectAns }">{{ ansTxt }}</h2>
       <p>{{ currQuest.explanations }}</p>
       <p>כך תזכו בשקט נפשי ובריאות טובה.</p>
-      <lottie-animation path="animations/test.json" />
+      <!-- <lottie-animation path="animations/test.json" /> -->
+      <lottie :options="lottieOptions" :height="150" :width="150"/>
       <button
         class="global-confirm-btn ans-btn"
         :class="{ 'green-btn': isCorrectAns }"
@@ -63,12 +64,13 @@
 
 <script>
 import { animalService } from "@/services/animal.service";
-import LottieAnimation from "lottie-vuejs/src/LottieAnimation.vue";
 import { Carousel, Slide } from "vue-carousel";
+import Lottie from '@/lottie.vue';
+import * as dogLottie from '@/assets/lottie/test.json';
 
 export default {
   name: "testPage",
-  components: { LottieAnimation, Carousel, Slide },
+  components: { Carousel, Slide, Lottie },
   data() {
     return {
       currQuestIdx: 0,
@@ -78,6 +80,7 @@ export default {
       selectedAnsIdx: null,
       isShowAns: false,
       isCorrectAns: null,
+      lottieOptions: {animationData: dogLottie}
     };
   },
   methods: {

@@ -11,9 +11,7 @@
         <img :src="powIcon" alt="" />
       </div>
       <div class="home-start-timer-container">
-        <lottie-animation
-          path="animations/test.json"
-        />
+        <lottie :options="lottieOptions" :height="300" :width="300" v-on:animCreated="handleAnimation"/>
       </div>
 
 
@@ -70,15 +68,17 @@
 
 <script>
 import homeNavBar from "@/cmps/home/homeNavBar.vue";
-import LottieAnimation from "lottie-vuejs/src/LottieAnimation.vue";
+import Lottie from '@/lottie.vue';
+import * as dogLottie from '@/assets/lottie/test.json';
 import { animalService } from "@/services/animal.service";
 
 export default {
   name: "homePage",
-  components: { homeNavBar, LottieAnimation },
+  components: { homeNavBar, Lottie },
   data(){
     return{
       lessons: null,
+      lottieOptions: {animationData: dogLottie}
     }
   },
   created() {

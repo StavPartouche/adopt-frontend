@@ -6,14 +6,7 @@
             <img @click="openDrawer(idx)" :class="{'upside': isOpen(idx)}" :src="arrowDownIcon" alt="">
             <div class="txt-container">
                 <h4 :class="{'light': !isOpen(idx)}">{{quest.txt}}</h4>
-                <template>
-                    <p>{{quest.explanations[0].title}}</p>
-                    <p>{{quest.explanations[0].desc}}</p>
-                </template>
-                <!-- <template v-if="isOpen(idx)">
-                    <p>{{quest.explanations[0].title}}</p>
-                    <p>{{quest.explanations[0].desc}}</p>
-                </template> -->
+                <p>{{quest.explanations}}</p>
             </div>
         </div>
     </section>
