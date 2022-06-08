@@ -117,7 +117,6 @@ export default {
     showAns() {
       if (!this.isMultiSelect) {
         if (this.selectedAns.isCorrect) {
-          // this.$store.commit({ type: "updatePetPoints" });
           this.points += 5
         }
         this.isCorrectAns = this.selectedAns.isCorrect;
@@ -130,7 +129,6 @@ export default {
           this.corretAnsLength === this.selectedAnsIdx.length
         ) {
           this.points += 5
-          // this.$store.commit({ type: "updatePetPoints" });
           this.isCorrectAns = true;
         } else {
           this.isCorrectAns = false;
