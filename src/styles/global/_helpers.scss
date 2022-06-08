@@ -5,7 +5,8 @@
 }
 
 .global-confirm-btn{
-    width: 100%;
+    // width: 100%;
+    width: 343px !important;
     height: 48px;
     border-radius: 25.5px;
     padding: 11px 28px;
@@ -14,6 +15,9 @@
     border: none;
     font-size: 20px;
     font-weight: 700;
+    top: 710 !important;
+    font-family: SimplerPro-Regular !important;
+    font-weight: 100;
 }
 
 .disable-confirm-btn{

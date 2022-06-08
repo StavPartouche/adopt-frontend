@@ -31,6 +31,7 @@
 
                 h3 {
                     font-size: 20px;
+                    margin-bottom: 8px;
                 }
 
                 p {
@@ -113,10 +114,10 @@
 
         input[type='checkbox'],
         input[type='radio'] {
-            --active: #323232;
+            --active: black;
             --active-inner: #fff;
             --focus: 2px rgba(39, 94, 254, .3);
-            --border: #BBC1E1;
+            --border: black;
             --border-hover: #323232;
             --background: #fff;
             --disabled: #F6F8FF;
@@ -143,7 +144,7 @@
             }
 
             &:checked {
-                --b: var(--active);
+                --b: white;
                 --bc: var(--active);
                 --d-o: .3s;
                 --d-t: .6s;
@@ -171,10 +172,6 @@
                         --bc: var(--border-hover);
                     }
                 }
-            }
-
-            &:focus {
-                box-shadow: 0 0 0 var(--focus);
             }
 
             &:not(.switch) {
@@ -229,7 +226,7 @@
                     border-radius: 50%;
                     width: 15px;
                     height: 15px;
-                    background: var(--ab, var(--border));
+                    background: black;
                     transform: translateX(var(--x, 0));
                 }
 

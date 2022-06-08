@@ -25,6 +25,7 @@ export default {
       return this.$store.getters.pet
     },
     style(){
+      if(this.$route)
       if(!this.pet) return null
       const map = {
         dog: '#FFE066',

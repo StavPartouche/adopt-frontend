@@ -24,7 +24,9 @@
             margin-bottom: 118px;
             .home-points{
                 margin-left: 15px;
-                font-size: 100px;
+                font-size: 80px;
+                font-family: EditorSans-Semibold;
+                font-weight: 100;
             }
             img{
                 height: 55px;
@@ -59,11 +61,14 @@
                 border-radius: 8px;
                 position: relative;
                 margin-bottom: 34px;
+                margin-right: 28px;
+                transform: translateY(-51px);
     
                 .lesson-num{
                     margin-right: 25px;
                     margin-left: 21px;
                     font-size: 36px;
+                    font-family: EditorSans-Semibold;
                 }
                 .info-container{
                     margin-top: 13.5px;
@@ -105,7 +110,7 @@
                     align-items: center;
                     justify-content: flex-start;
                     position: absolute;
-                    right: -42px;
+                    right: -29px;
                     top: 36px;
                     .circle{
                         width: 20px;
@@ -114,8 +119,8 @@
                         border-radius: 50%;
                     }
                     .empty{
-                        background-color: #FFF3C6;
-                        border: 1px solid #BCB083;
+                        background-color: white;
+                        border: 2px solid gray;
                     }
                     .line{
                         width: 1px;
@@ -166,15 +171,14 @@
             }
         }
         .start-btn{
-            width: 90px;
-            height: 90px;
+            width: 70px;
+            height: 70px;
             background-color: #989898;
             color: white;
             border-radius: 50%;
-            // border: 6px solid $background;
-            transform: translateY(-65%);
-            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.08);
-            font-size: 20px;
+            transform: translateY(-79%);
+            box-shadow: 0px 4px 6px rgb(0 0 0 / 8%);
+            font-size: 18px;
             font-family: SimplerPro-Bold;
             position: relative;
 

@@ -3,7 +3,7 @@
     <template v-if="isShowFinal">
       <div class="final-container">
         <h2 class="final-title">השיעור הושלם!</h2>
-        <lottie class="animation" :options="finalLottieOptions" :height="280" :width="450"/>
+        <lottie class="animation" :options="finalLottieOptions" :height="280" :width="280"/>
         <div class="data-container">
           <div class="data">
             <div class="right">
@@ -77,7 +77,7 @@
       <div v-if="currQuest" class="ans" :class="{ 'show-ans': isShowAns }">
         <h2 class="title" :class="{ 'green-txt': isCorrectAns }">{{ ansTxt }}</h2>
         <p>{{ currQuest.explanations }}</p>
-        <p>כך תזכו בשקט נפשי ובריאות טובה.</p>
+        <p class="tip">כך תזכו בשקט נפשי ובריאות טובה.</p>
         <lottie v-if="isShowAns" :options="lottieOptions" :height="150" :width="150"/>
         <button
           class="global-confirm-btn ans-btn"

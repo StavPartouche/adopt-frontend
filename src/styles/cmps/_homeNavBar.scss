@@ -38,7 +38,8 @@
                 justify-content: flex-start;
                 font-size: 16px;
                 font-weight: bold;
-                padding: 8px;
+                padding: 0 8px;
+                height: 38px;
                 &:not(:last-child){
                     border-bottom: 1px solid #989898;
                 }
@@ -50,7 +51,7 @@
         }
         .show{
             height: fit-content;
-            padding: 12px 0px;
+            // padding: 12px 0px;
             
         }
         .rotate{

@@ -13,12 +13,12 @@
       <img class="heart2" :src="smallHeartIcon" alt="">
     </div>
     <div v-if="showInput" class="select-age-container input-container">
-      <h2 class="title">מה השם של חיית המחמד?</h2>
+      <h2 class="title">{{questTxt2}}</h2>
       <input type="text" v-model="name">
       <button @click="handlePickName" class="global-confirm-btn select-age-btn" :class="{'disable-confirm-btn': !name}">המשך</button>
     </div>
     <div v-if="showAnimalAgeOptions" class="select-age-container">
-      <h2 class="title">בחרו את גילו של הכלב אותו תרצו לגדל</h2>
+      <h2 class="title">{{questTxt}}</h2>
       <div @click="selectAgeOption(idx)" class="age-option" :class="{'highlight-option-border':highlightOption(idx)}" v-for="(opt, idx) in ageOptions" :key="idx">
         <h3 class="age-option-title">{{opt.title}}</h3>
         <p class="age-option-desc">{{opt.desc}}</p>
@@ -104,22 +104,38 @@ export default {
       return require('../assets/icons/vButton.svg')
     },
     dogIcon(){
+      if(this.animal === 'dog') return require('../assets/icons/dogColored.svg')
       return require('../assets/icons/dogHome.svg')
     },
     catIcon(){
+      if(this.animal === 'cat') return require('../assets/icons/catColored.svg')
       return require('../assets/icons/cat.svg')
     },
     rabbitIcon(){
+      if(this.animal === 'rabbit') return require('../assets/icons/rabbitColored.svg')
       return require('../assets/icons/rabbit.svg')
     },
     fishIcon(){
+      if(this.animal === 'fish') return require('../assets/icons/fishColored.svg')
       return require('../assets/icons/fish.svg')
     },
     birdIcon(){
+      if(this.animal === 'bird') return require('../assets/icons/birdColored.svg')
       return require('../assets/icons/bird.svg')
     },
     smallHeartIcon(){
       return require('../assets/icons/smallHeart.svg')
+    },
+    questTxt(){
+      if(this.animal === 'dog') return 'מה הגיל של הכלב.ה?'
+      return 'מה הגיל של החתול.ה?'
+    },
+    questTxt2(){
+      if(this.animal === 'dog') return 'מה השם של הכלב.ה?'
+      if(this.animal === 'cat') return 'מה השם של החתול.ה?'
+      if(this.animal === 'bird') return 'מה שם התוכי?'
+      if(this.animal === 'rabbit') return 'מה שם הארנב.ת?'
+      return 'מה שם הדג?'
     },
   }
 };

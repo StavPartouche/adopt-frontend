@@ -103,8 +103,7 @@ export default {
   },
   computed: {
     lottieOptions(){
-      const lottie = require(`@/assets/lottie/correctAns/${this.pet.type}.json`)
-      // const lottie = require(`@/assets/lottie/home/${this.pet.type}.json`)
+      const lottie = require(`@/assets/lottie/home/${this.pet.type}.json`)
       return {animationData: lottie}
     },
     pet() {
@@ -144,15 +143,16 @@ export default {
         return true
     },
     styleStartBtn(){
-      if(!this.pet) return null
-      const map = {
-        dog: '#FFE066',
-        cat: '#D152FF',
-        rabbit: '#EB50B4',
-        fish: '#5CE0FF',
-        bird: '#4EEBC0',
-      }
-      return `border: 6px solid ${map[this.pet.type]};`
+      return null
+      // if(!this.pet) return null
+      // const map = {
+      //   dog: '#FFE066',
+      //   cat: '#D152FF',
+      //   rabbit: '#EB50B4',
+      //   fish: '#5CE0FF',
+      //   bird: '#4EEBC0',
+      // }
+      // return `border: 6px solid ${map[this.pet.type]};`
     }
   },
 };

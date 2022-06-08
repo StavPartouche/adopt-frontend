@@ -1,6 +1,6 @@
 <template>
   <section class="onboardingSlide onboardingSlide3 full-width">
-    <div class="slides-img"></div>
+    <img class="slides-img" :src="bordingImg" alt="">
     <div class="text-container">
       <h2 class="onboarding-instructions">בחרו את החיה שתרצו לגדל</h2>
       <button class="global-confirm-btn" @click="showNext">המשך</button>
@@ -16,6 +16,11 @@ export default {
       showNext(){
         this.$emit('showNextSlide', 'onboardingSlide4')
       }
+  },
+  computed:{
+    bordingImg(){
+      return require('@/assets/bgcs/onboarding/onbording2.svg')
+    }
   }
 };
 </script>

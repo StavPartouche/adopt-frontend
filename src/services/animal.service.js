@@ -4815,8 +4815,6 @@ function getTests(animal, ageIdx) {
 }
 
 function getAnimalAgeOptions(animal) {
-    if (data[animal].length === 1) return null
-
     return data[animal].map(opt => {
         return {
             title: opt.title,
