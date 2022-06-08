@@ -1,6 +1,6 @@
 <template>
   <section class="home-page">
-    <home-nav-bar></home-nav-bar>
+    <home-nav-bar @changePet="imgKey++"></home-nav-bar>
     <div class="home-page-main">
       <div class="txt-container">
         <p>בואו נלמד יחד איך מגדלים בעלי חיים!</p>
@@ -11,9 +11,8 @@
         <img :src="powIcon" alt="" />
       </div>
       <div class="home-start-timer-container">
-        <lottie :options="lottieOptions" :height="300" :width="300"/>
+        <lottie :options="lottieOptions" :height="300" :width="300" :key="imgKey"/>
       </div>
-
 
 
 
@@ -54,7 +53,7 @@
           <img :src="lightBulbIcon" alt="" />
           <p>טיפים</p>
         </div>
-        <button @click="goToTest" class="start-btn" :class="{'active': isAvailableeGame}">
+        <button @click="goToTest" class="start-btn" :class="{'active': isAvailableeGame}" :style="styleStartBtn">
             התחל
         </button>
         <div @click="$router.push('/achievement')" class="info-btn">
@@ -77,6 +76,7 @@ export default {
   data(){
     return{
       lessons: null,
+      imgKey: 0
     }
   },
   created() {
@@ -143,6 +143,17 @@ export default {
     isAvailableeGame(){
         return true
     },
+    styleStartBtn(){
+      if(!this.pet) return null
+      const map = {
+        dog: '#FFE066',
+        cat: '#D152FF',
+        rabbit: '#EB50B4',
+        fish: '#5CE0FF',
+        bird: '#4EEBC0',
+      }
+      return `border: 6px solid ${map[this.pet.type]};`
+    }
   },
 };
 </script>

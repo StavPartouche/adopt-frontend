@@ -41,6 +41,7 @@ export default {
       const pet = storageService.loadPetByName(petName)
       this.$store.commit({ type: 'updatePet', pet })
       this.isShowOpt = false
+      this.$emit('changePet')
     },
     getPetIcon(type){
       return require(`@/assets/icons/smallAnimal/${type}.svg`) 
