@@ -43,7 +43,7 @@ export default {
       this.isShowOpt = false
     },
     getPetIcon(type){
-      return require('@/assets/icons/bell.svg') 
+      return require(`@/assets/icons/smallAnimal/${type}.svg`) 
     },
     toggleShowOpt(){
       this.isShowOpt = !this.isShowOpt

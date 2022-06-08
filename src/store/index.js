@@ -19,8 +19,8 @@ export default new Vuex.Store({
       state.pet = pet
       storageService.savePet(pet)
     },
-    updatePetPoints(state){
-      state.pet.points += 5
+    updatePetPoints(state, { points }){
+      state.pet.points += points
       storageService.savePet(state.pet)
     },
     updatePetCurrTest(state){

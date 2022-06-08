@@ -1,64 +1,93 @@
 <template>
   <section class="test-page">
-    <div class="test-progress-bar">
-      <div class="curr-progress" :style="progress"></div>
-    </div>
-    <p class="test-quest-counter">{{ currQuestIdx + 1 }}/{{ questLength }}</p>
-    <h2 class="test-quest">
-      {{ currQuest.txt }}?
-      <p class="help" v-if="this.isMultiSelect || this.isComplete">
-        {{ helpTxt }}
-      </p>
-    </h2>
-    <div
-      v-if="isNotSelectCar"
-      class="test-options-container"
-      :class="{ 'multi-select-container': isMultiSelect }"
-    >
-      <div
-        @click="selectAns(idx)"
-        class="option"
-        :class="{
-          'highlight-option-border': highlightAns(idx),
-          'multi-select-option': isMultiSelect,
-        }"
-        v-for="(answer, idx) in currQuest.answers"
-        :key="idx"
-      >
-        <p class="option-txt">{{ answer.txt }}</p>
-      </div>
-    </div>
-    <carousel v-else perPage="1" navigationEnabled :paginationEnabled="false">
-      <slide v-for="(answer, idx) in currQuest.answers" :key="idx"> 
-        <div class="slide" :class="{'highlight-option-slide': highlightAns(idx)}">
-          <p>{{answer.txt}}</p>
-          <img @click="selectAns(idx)" :src="vIcon" alt="">
+    <template v-if="isShowFinal">
+      <div class="final-container">
+        <h2 class="final-title">השיעור הושלם!</h2>
+        <lottie class="animation" :options="finalLottieOptions" :height="280" :width="450"/>
+        <div class="data-container">
+          <div class="data">
+            <div class="right">
+              <img :src="powIcon" alt="">
+              <p>מספר נקודות</p>
+            </div>
+            <p class="num">{{points}}</p>
+          </div>
+          <div class="data">
+            <div class="right">
+              <img :src="smallVIcon" alt="">
+              <p>תשובות נכונות</p>
+            </div>
+            <p class="num">{{points/5}}</p>
+          </div>
         </div>
-      </slide>
-    </carousel>
-    <p v-if="this.isComplete">{{ currQuest.end }}</p>
-    <button
-      @click="showAns"
-      class="global-confirm-btn select-age-btn test-btn"
-      :class="{ 'disable-confirm-btn': !isActiveBtn }"
-    >
-      המשך
-    </button>
-    <div v-if="isShowAns" @click.stop="onNextQuest" class="warpper"></div>
-    <div v-if="currQuest" class="ans" :class="{ 'show-ans': isShowAns }">
-      <h2 class="title" :class="{ 'green-txt': isCorrectAns }">{{ ansTxt }}</h2>
-      <p>{{ currQuest.explanations }}</p>
-      <p>כך תזכו בשקט נפשי ובריאות טובה.</p>
-      <!-- <lottie-animation path="animations/test.json" /> -->
-      <lottie :options="lottieOptions" :height="150" :width="150"/>
-      <button
-        class="global-confirm-btn ans-btn"
-        :class="{ 'green-btn': isCorrectAns }"
-        @click="onNextQuest"
+        <button
+        @click="endTest"
+        class="global-confirm-btn test-btn"
       >
         המשך
       </button>
-    </div>
+      </div>
+    </template>
+    <template v-else>
+      <div class="test-progress-bar">
+        <div class="curr-progress" :style="progress"></div>
+      </div>
+      <p class="test-quest-counter">{{ currQuestIdx + 1 }}/{{ questLength }}</p>
+      <h2 class="test-quest">
+        {{ currQuest.txt }}?
+        <p class="help" v-if="this.isMultiSelect || this.isComplete">
+          {{ helpTxt }}
+        </p>
+      </h2>
+      <div
+        v-if="isNotSelectCar"
+        class="test-options-container"
+        :class="{ 'multi-select-container': isMultiSelect }"
+      >
+        <div
+          @click="selectAns(idx)"
+          class="option"
+          :class="{
+            'highlight-option-border': highlightAns(idx),
+            'multi-select-option': isMultiSelect,
+          }"
+          v-for="(answer, idx) in currQuest.answers"
+          :key="idx"
+        >
+          <p class="option-txt">{{ answer.txt }}</p>
+        </div>
+      </div>
+      <carousel v-else :perPage="1" navigationEnabled :paginationEnabled="false">
+        <slide v-for="(answer, idx) in currQuest.answers" :key="idx"> 
+          <div class="slide" :class="{'highlight-option-slide': highlightAns(idx)}">
+            <p>{{answer.txt}}</p>
+            <img @click="selectAns(idx)" :src="vIcon" alt="">
+          </div>
+        </slide>
+      </carousel>
+      <p v-if="this.isComplete">{{ currQuest.end }}</p>
+      <button
+        @click="showAns"
+        class="global-confirm-btn select-age-btn test-btn"
+        :class="{ 'disable-confirm-btn': !isActiveBtn }"
+      >
+        המשך
+      </button>
+      <div v-if="isShowAns" @click.stop="onNextQuest" class="warpper"></div>
+      <div v-if="currQuest" class="ans" :class="{ 'show-ans': isShowAns }">
+        <h2 class="title" :class="{ 'green-txt': isCorrectAns }">{{ ansTxt }}</h2>
+        <p>{{ currQuest.explanations }}</p>
+        <p>כך תזכו בשקט נפשי ובריאות טובה.</p>
+        <lottie v-if="isShowAns" :options="lottieOptions" :height="150" :width="150"/>
+        <button
+          class="global-confirm-btn ans-btn"
+          :class="{ 'green-btn': isCorrectAns }"
+          @click="onNextQuest"
+        >
+          המשך
+        </button>
+      </div>
+    </template>
   </section>
 </template>
 
@@ -66,7 +95,7 @@
 import { animalService } from "@/services/animal.service";
 import { Carousel, Slide } from "vue-carousel";
 import Lottie from '@/lottie.vue';
-import * as dogLottie from '@/assets/lottie/test.json';
+
 
 export default {
   name: "testPage",
@@ -80,14 +109,16 @@ export default {
       selectedAnsIdx: null,
       isShowAns: false,
       isCorrectAns: null,
-      lottieOptions: {animationData: dogLottie}
+      isShowFinal: false,
+      points: 0
     };
   },
   methods: {
     showAns() {
       if (!this.isMultiSelect) {
         if (this.selectedAns.isCorrect) {
-          this.$store.commit({ type: "updatePetPoints" });
+          // this.$store.commit({ type: "updatePetPoints" });
+          this.points += 5
         }
         this.isCorrectAns = this.selectedAns.isCorrect;
       } else {
@@ -98,7 +129,8 @@ export default {
           isAllCorrect &&
           this.corretAnsLength === this.selectedAnsIdx.length
         ) {
-          this.$store.commit({ type: "updatePetPoints" });
+          this.points += 5
+          // this.$store.commit({ type: "updatePetPoints" });
           this.isCorrectAns = true;
         } else {
           this.isCorrectAns = false;
@@ -135,8 +167,7 @@ export default {
     },
     onNextQuest() {
       if (this.currQuestIdx === this.questLength - 1) {
-        this.$store.commit({ type: "updatePetCurrTest" });
-        this.$router.push("/home");
+        this.isShowFinal = true
         return;
       }
       this.reset();
@@ -147,8 +178,21 @@ export default {
       this.selectedAnsIdx = null;
       this.isShowAns = null;
     },
+    endTest(){
+      this.$store.commit({ type: "updatePetPoints", points: this.points });
+      this.$store.commit({ type: "updatePetCurrTest" });
+      this.$router.push("/home");
+    }
   },
   computed: {
+    lottieOptions(){
+      let lottie = this.isCorrectAns ? require(`@/assets/lottie/correctAns/${this.pet.type}.json`) : require(`@/assets/lottie/incorrectAns/${this.pet.type}.json`)
+      return { animationData: lottie }
+    },
+    finalLottieOptions(){
+      let lottie = require(`@/assets/lottie/endTest/${this.pet.type}.json`)
+      return { animationData: lottie }
+    },
     pet() {
       return this.$store.getters.pet;
     },
@@ -205,7 +249,13 @@ export default {
     },
     vIcon(){
       return require('@/assets/icons/vButton.svg')
-    }
+    },
+    powIcon(){
+      return require('@/assets/icons/holoPow.svg')
+    },
+    smallVIcon(){
+      return require('@/assets/icons/smallV.svg')
+    },
   },
   created() {
     this.testDetails = animalService.getCurrTest(this.pet);
