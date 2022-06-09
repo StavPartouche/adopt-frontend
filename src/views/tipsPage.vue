@@ -1,6 +1,6 @@
 <template>
   <section class="tips-page" v-if="tips">
-    <sub-page-nav txt="טיפים להיום" />
+    <sub-page-nav txt="טיפים יומיים" />
     <div class="tabs-container">
         <p @click="isShowSaved = false" :class="{'disable-txt': isShowSaved}">עדכני</p>
         <p @click="isShowSaved = true" :class="{'disable-txt': !isShowSaved}">שמור</p>

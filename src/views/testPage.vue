@@ -179,7 +179,7 @@ export default {
     endTest(){
       this.$store.commit({ type: "updatePetPoints", points: this.points });
       this.$store.commit({ type: "updatePetCurrTest" });
-      this.$router.push("/home");
+      this.$router.push("/");
     }
   },
   computed: {
@@ -257,7 +257,7 @@ export default {
   },
   created() {
     this.testDetails = animalService.getCurrTest(this.pet);
-    if (!this.testDetails) this.$router.push("/home");
+    if (!this.testDetails) this.$router.push("/");
   },
 };
 </script>

@@ -25,7 +25,6 @@ export default {
       return this.$store.getters.pet
     },
     style(){
-      if(this.$route)
       if(!this.pet) return null
       const map = {
         dog: '#FFE066',
@@ -41,7 +40,7 @@ export default {
     const pet = storageService.loadLastPet()
     if(pet){
       this.$store.commit({ type: 'updatePet', pet })
-      this.$router.push('/home')
+      this.$router.push('/')
       return
     }
     this.$router.push('/onboarding').catch(()=>{})

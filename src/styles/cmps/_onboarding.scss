@@ -6,7 +6,7 @@
     align-items: center;
     justify-content: flex-start;
     scroll-behavior: smooth;
-    background-color: $gray;
+    background-color: white;
     .full-width{
         width: 100%;
         height: 100%;
@@ -65,7 +65,10 @@
     height: 100%;
     justify-content: center;
     img{
-        margin-bottom: 50px;
+        margin-bottom: 22px;
+    }
+    .logo{
+        margin-right: 1px;
     }
     h1{
         font-size: 80px;

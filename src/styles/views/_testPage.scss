@@ -79,7 +79,7 @@
         font-family: EditorSans-Semibold;
         font-size: 16px;
         letter-spacing: 4px;
-        margin-bottom: 38px;
+        margin-bottom: 31px;
     }
 
     .test-quest{
@@ -87,7 +87,7 @@
         font-size: 32px;
         text-align: center;
         line-height: 113.5%;
-        margin-bottom: 38px;
+        margin-bottom: 31px;
 
         .help{
             margin-top: 4px;
@@ -125,7 +125,7 @@
     .multi-select-container{
         display: grid;
         grid-template-columns: auto auto;
-        column-gap: 10px;
+        column-gap: 12px;
         justify-content: center;
 
         .multi-select-option{
@@ -175,10 +175,10 @@
 
         .ans-btn{
             position: absolute;
-            bottom: -17%;
-            right: 0;
+            bottom: -62px;
+            right: 50%;
+            transform: translateX(50%);
             background-color: #FF6B6B;
-            ;
         }
     }
 

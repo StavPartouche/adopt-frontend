@@ -1,7 +1,7 @@
 <template>
   <section class="onboardingSlide onboardingSlide1">
     <img :src="logoIcon" alt="">
-    <h1>קליקר</h1>
+    <img class="logo" :src="clickerLogoIcon" alt="">
   </section>
 </template>
 
@@ -17,7 +17,10 @@ export default {
   computed: {
     logoIcon(){
       return require('./../../assets/icons/logo.svg')
-    }
+    },
+    clickerLogoIcon(){
+        return require('@/assets/icons/clickerLogo.svg')
+    },
   },
   created(){
     setTimeout(() => {

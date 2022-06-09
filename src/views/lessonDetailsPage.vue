@@ -1,7 +1,9 @@
 <template>
     <section class="lesson-details-page" v-if="lesson">
-        <sub-page-nav txt="שיעורים" />
-        <h2 class="title">{{lesson.title}}</h2>
+        <sub-page-nav txt="סיכום שיעור" />
+        <h2 class="title">שיעור 01</h2>
+        <h2 class="title sec">הסתיים בהצלחה!</h2>
+        <p class="par">{{lesson.title}}</p>
         <div class="quest-container" :class="{'fit': isOpen(idx) }" v-for="(quest, idx) in lesson.questions" :key="idx">
             <img @click="openDrawer(idx)" :class="{'upside': isOpen(idx)}" :src="arrowDownIcon" alt="">
             <div class="txt-container">

@@ -90,15 +90,19 @@ export default {
       return this.lessons[idx].questions.length;
     },
     isLessonOpen(idx) {
-      return idx <= this.pet.currTest;
+      return idx === 0;
     },
     lessonNum(idx) {
       if (idx >= 9) return idx + 1;
       return `0${idx + 1}`;
     },
     openLesson(idx){
-        const shouldOpen = this.isLessonOpen(idx)
-        if(shouldOpen) this.$router.push(`/lesson/${idx}`)
+      if(idx !== 0) return
+      if(this.pet.currTest === 0){
+        this.$router.push(`/test`)
+        return 
+      }
+      this.$router.push(`/lesson/${idx}`)
     }
   },
   computed: {
@@ -120,9 +124,6 @@ export default {
     },
     powIcon() {
       return require("./../assets/icons/pow.svg");
-    },
-    dogHomeIcon() {
-      return require("./../assets/icons/dogHome.svg");
     },
     hatIcon() {
       return require("./../assets/icons/hat.svg");

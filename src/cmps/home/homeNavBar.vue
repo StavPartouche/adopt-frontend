@@ -1,7 +1,7 @@
 <template>
   <section class="home-nav-bar">
       <div class="home-nav-bar-select">
-          <p class="txt" @click="toggleShowOpt">קליקר</p>
+          <img class="logo" :src="logoIcon" alt="">
           <img class="arrow" :class="{'rotate': isShowOpt}" @click="toggleShowOpt" :src="arrowDown" alt="">
         <div class="options" :class="{'show': isShowOpt}">
           <div @click="handleSwitchPet(pet.name)" v-for="pet in petsToShow" :key="pet.name" class="option">
@@ -65,6 +65,9 @@ export default {
     },
     bellIcon(){
         return require('@/assets/icons/bell.svg')
+    },
+    logoIcon(){
+        return require('@/assets/icons/clickerLogo.svg')
     },
     arrowDown(){
         return require('@/assets/icons/arrowDown.svg')

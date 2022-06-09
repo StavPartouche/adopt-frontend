@@ -1,5 +1,5 @@
 <template>
-  <section class="select-animal-page" :class="{'yellow-bgc': showAnimalAgeOptions}">
+  <section class="select-animal-page">
     <div v-if="showLayer" @click.stop="showLayer = false" class="layer">
       <h2>לחצו לבחירת החיה</h2>
     </div>
@@ -12,12 +12,12 @@
       <img class="heart1" :src="smallHeartIcon" alt="">
       <img class="heart2" :src="smallHeartIcon" alt="">
     </div>
-    <div v-if="showInput" class="select-age-container input-container">
+    <div v-if="showInput" class="select-age-container input-container" :style="style">
       <h2 class="title">{{questTxt2}}</h2>
       <input type="text" v-model="name">
-      <button @click="handlePickName" class="global-confirm-btn select-age-btn" :class="{'disable-confirm-btn': !name}">המשך</button>
+      <img :src="buttonIcon" class="select-name-btn" @click="handlePickName" alt="">
     </div>
-    <div v-if="showAnimalAgeOptions" class="select-age-container">
+    <div v-if="showAnimalAgeOptions" class="select-age-container" :style="style">
       <h2 class="title">{{questTxt}}</h2>
       <div @click="selectAgeOption(idx)" class="age-option" :class="{'highlight-option-border':highlightOption(idx)}" v-for="(opt, idx) in ageOptions" :key="idx">
         <h3 class="age-option-title">{{opt.title}}</h3>
@@ -76,7 +76,7 @@ export default {
         achievs: []
       }
       this.$store.commit({ type: 'updatePet', pet })
-      this.$router.push('/home')
+      this.$router.push('/')
     },
     handlePickName(){
       if(!this.name) return 
@@ -101,30 +101,30 @@ export default {
       return map[this.animal]
     },
     buttonIcon(){
-      return require('../assets/icons/vButton.svg')
+      return require('@/assets/icons/vButton.svg')
     },
     dogIcon(){
-      if(this.animal === 'dog') return require('../assets/icons/dogColored.svg')
-      return require('../assets/icons/dogHome.svg')
+      if(this.animal === 'dog') return require('@/assets/icons/dogColored.png')
+      return require('@/assets/icons/dog.png')
     },
     catIcon(){
-      if(this.animal === 'cat') return require('../assets/icons/catColored.svg')
-      return require('../assets/icons/cat.svg')
+      if(this.animal === 'cat') return require('@/assets/icons/catColored.png')
+      return require('@/assets/icons/cat.png')
     },
     rabbitIcon(){
-      if(this.animal === 'rabbit') return require('../assets/icons/rabbitColored.svg')
-      return require('../assets/icons/rabbit.svg')
+      if(this.animal === 'rabbit') return require('@/assets/icons/rabbitColored.png')
+      return require('@/assets/icons/rabbit.png')
     },
     fishIcon(){
-      if(this.animal === 'fish') return require('../assets/icons/fishColored.svg')
-      return require('../assets/icons/fish.svg')
+      if(this.animal === 'fish') return require('@/assets/icons/fishColored.png')
+      return require('@/assets/icons/fish.png')
     },
     birdIcon(){
-      if(this.animal === 'bird') return require('../assets/icons/birdColored.svg')
-      return require('../assets/icons/bird.svg')
+      if(this.animal === 'bird') return require('@/assets/icons/birdColored.png')
+      return require('@/assets/icons/bird.png')
     },
     smallHeartIcon(){
-      return require('../assets/icons/smallHeart.svg')
+      return require('@/assets/icons/smallHeart.svg')
     },
     questTxt(){
       if(this.animal === 'dog') return 'מה הגיל של הכלב.ה?'
@@ -137,6 +137,17 @@ export default {
       if(this.animal === 'rabbit') return 'מה שם הארנב.ת?'
       return 'מה שם הדג?'
     },
+    style(){
+      if(!this.animal) return null
+      const map = {
+        dog: '#FFE066',
+        cat: '#D152FF',
+        rabbit: '#EB50B4',
+        fish: '#5CE0FF',
+        bird: '#4EEBC0',
+      }
+      return `background-color: ${map[this.animal]}`
+    }
   }
 };
 </script>

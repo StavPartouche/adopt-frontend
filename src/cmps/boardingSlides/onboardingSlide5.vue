@@ -4,7 +4,7 @@
     <div class="text-container">
       <p>אספתם 100 נקודות?</p>
       <h2 class="onboarding-instructions">אתם מוכנים!</h2>
-      <button class="global-confirm-btn" @click="showNext">המשך</button>
+      <button class="global-confirm-btn" @click="showNext">התחל</button>
     </div>
   </section>
 </template>

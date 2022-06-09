@@ -10,6 +10,10 @@
         align-items: center;
         position: relative;
 
+        .logo{
+            width: 72px;
+        }
+
         .arrow{
             transform: rotate(0);
             transition: all 0.3s;

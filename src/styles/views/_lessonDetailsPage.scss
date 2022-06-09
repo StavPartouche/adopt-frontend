@@ -1,12 +1,25 @@
-.lesson-details-page{
+.lesson-details-page {
     padding: 0 16px;
     min-height: 100vh;
 
-    .title{
+    .title {
         text-align: center;
-        margin-bottom: 36px;
+        font-family: EditorSans-Semibold;
+        font-size: 32px;
+        line-height: 30px;
     }
-    .quest-container{
+
+    .sec {
+        margin-bottom: 31px;
+    }
+
+    .par {
+        text-align: center;
+        margin-bottom: 31px;
+        font-family: SimplerPro-Bold;
+    }
+
+    .quest-container {
         position: relative;
         display: flex;
         width: 300px;
@@ -20,33 +33,38 @@
         transition: all 0.7s;
         overflow: hidden; //
 
-        img{
+        img {
             width: 11px;
             position: absolute;
             top: 22px;
-            right: 15px;;
+            right: 15px;
+            ;
             transition: 0.4s;
         }
-        .upside{
+
+        .upside {
             transform: rotate(180deg);
         }
 
-        .txt-container{
+        .txt-container {
             margin-right: 21px;
             font-size: 20px;
-            h4{
+
+            h4 {
                 margin-bottom: 32px;
             }
-            p{
+
+            p {
                 // font-size: 16px;
             }
         }
     }
 
-    .fit{
-        max-height:500px;
+    .fit {
+        max-height: 500px;
     }
-    .light{
+
+    .light {
         font-weight: 400;
     }
 }

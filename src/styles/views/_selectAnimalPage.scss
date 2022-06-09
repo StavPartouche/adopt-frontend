@@ -32,42 +32,51 @@
     }
 
     .select-container{
-        width: 340px;
-        height: 660px;
-        margin: 0 auto;
-        margin-bottom: 30px;
+        width: 100%;
+        height: 100vh;
         position: relative;
+        background-color: white;
         img{
             position: absolute;
         }
 
         .dog-icon{
-            bottom: 0;
-            left: 3%;
+            top: 477px;
+            right: 21px;
+            width: 331px;
+            height: 210px;
         }
         .rabbit-icon{
-            left: 8%;
-            bottom: 23%;
+            right: 174px;
+            top: 359px;
+            width: 157px;
+            height: 176px;
         }
         .fish-icon{
-            bottom: 35%;
-            right: 13%;
+            top: 376px;
+            right: 37px;
+            width: 145px;
+            height: 86px;
         }
         .cat-icon{
-            bottom: 46%;
-            right: 5%;
+            top: 210px;
+            right: 79px;
+            width: 191px;
+            height: 152px;
         }
         .bird-icon{
-            top: 14%;
-            right: 29%;
+            top: 125px;
+            right: 120px;
+            width: 128px;
+            height: 112px;
         }
         .heart1{
-            top: 39%;
-            left: 16%;
+            top: 296px;
+            right: 289px;
         }
         .heart2{
-            bottom: 12%;
-            right: 6%;
+            top: 589px;
+            right: 40px;
         }
     }
 
@@ -81,12 +90,14 @@
         color: white;
         position: absolute;
         bottom: 45px;
+        font-family: SimplerPro-Regular;
     }
 
     .input-container{
         background-color: none;
 
         input{
+            outline: none !important;
             width: 343px;
             height: 56px;
             border: 3px solid #000000;
@@ -95,6 +106,7 @@
             font-size: 32px;
             padding: 10px;
             font-family: SimplerPro-Regular;
+            margin-bottom: 40px;
         }
     }
 
@@ -113,6 +125,11 @@
             font-size: 32px;
             line-height: 31.2px;
             font-family: EditorSans-Semibold;
+        }
+
+        .select-name-btn{
+            width: 48px;
+            height: 48px;
         }
         
         .age-option{
