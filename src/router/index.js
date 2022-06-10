@@ -1,7 +1,8 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
 import selectAnimalPage from '@/views/selectAnimalPage'
-import onborading from '@/views/onboardingPage'
+import onborading from '@/views/onboardingCarPage'
+// import onborading from '@/views/onboardingPage'
 import homePage from '@/views/homePage'
 import testPage from '@/views/testPage'
 import tipsPage from '@/views/tipsPage'

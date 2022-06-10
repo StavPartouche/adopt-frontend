@@ -1,8 +1,8 @@
 <template>
   <section class="home-nav-bar">
       <div class="home-nav-bar-select">
-          <img class="logo" :src="logoIcon" alt="">
-          <img class="arrow" :class="{'rotate': isShowOpt}" @click="toggleShowOpt" :src="arrowDown" alt="">
+          <img class="logo" :src="logoIcon" @click="toggleShowOpt" alt="">
+          <img class="arrow" :class="{'rotate': isShowOpt}" :src="arrowDown"  @click="toggleShowOpt" alt="">
         <div class="options" :class="{'show': isShowOpt}">
           <div @click="handleSwitchPet(pet.name)" v-for="pet in petsToShow" :key="pet.name" class="option">
             <img :src="getPetIcon(pet.type)" alt="">

@@ -83,6 +83,10 @@ export default {
     }
   },
   created() {
+    if(!this.pet){
+      this.$router.push('/onboarding')
+      return 
+    }
     this.lessons = animalService.getTests(this.pet.type, this.pet.ageIdx);
   },
   methods:{

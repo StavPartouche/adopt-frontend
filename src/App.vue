@@ -41,10 +41,8 @@ export default {
     const pet = storageService.loadLastPet()
     if(pet){
       this.$store.commit({ type: 'updatePet', pet })
-      this.$router.push('/')
       return
     }
-    this.$router.push('/onboarding').catch(()=>{})
   }
 };
 </script>

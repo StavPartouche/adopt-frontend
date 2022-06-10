@@ -79,8 +79,8 @@
       <div v-if="isShowAns" @click.stop="onNextQuest" class="warpper"></div>
       <div v-if="currQuest" class="ans" :class="{ 'show-ans': isShowAns }">
         <h2 class="title" :class="{ 'green-txt': isCorrectAns }">{{ ansTxt }}</h2>
-        <p>{{ currQuest.explanations }}</p>
-        <p class="tip">כך תזכו בשקט נפשי ובריאות טובה.</p>
+        <p>{{ ansToShow }}</p>
+        <p class="tip">{{ currQuest.explanations }}</p>
         <lottie v-if="isShowAns" :options="lottieOptions" :height="150" :width="150"/>
         <button
           class="global-confirm-btn ans-btn"
@@ -233,6 +233,15 @@ export default {
     ansTxt() {
       if (!this.isCorrectAns) return "זו טעות, התשובה הנכונה:";
       return "תשובה נכונה!";
+    },
+    ansToShow(){
+      if(this.isMultiSelect){
+        const stam = this.currQuest.answers.filter(a => a.isCorrect).map(a => a.txt).join(', ')
+        return stam + '.'
+      }else{
+        const correct = this.currQuest.answers.find( a => a.isCorrect)
+        return correct.txt
+      }
     },
     helpTxt() {
       if (this.isMultiSelect) return "יותר מתשובה אחת";
