@@ -1,17 +1,28 @@
 <template>
-    <section class="lesson-details-page" v-if="lesson">
-        <sub-page-nav txt="סיכום שיעור" />
-        <h2 class="title">שיעור 01</h2>
-        <h2 class="title sec">הסתיים בהצלחה!</h2>
-        <p class="par">{{lesson.title}}</p>
-        <div class="quest-container" :class="{'fit': isOpen(idx) }" v-for="(quest, idx) in lesson.questions" :key="idx">
-            <img @click="openDrawer(idx)" :class="{'upside': isOpen(idx)}" :src="arrowDownIcon" alt="">
-            <div class="txt-container">
-                <h4 :class="{'light': !isOpen(idx)}">{{quest.txt}}</h4>
-                <p>{{quest.explanations}}</p>
-            </div>
-        </div>
-    </section>
+  <section class="lesson-details-page" v-if="lesson">
+    <sub-page-nav txt="סיכום שיעור" />
+    <h2 class="title">שיעור 01</h2>
+    <h2 class="title sec">הסתיים בהצלחה!</h2>
+    <p class="par">{{ lesson.title }}</p>
+    <div
+      class="quest-container"
+      :class="{ fit: isOpen(idx) }"
+      v-for="(quest, idx) in lesson.questions"
+      :key="idx"
+    >
+      <img
+        @click="openDrawer(idx)"
+        :class="{ upside: isOpen(idx) }"
+        :src="arrowDownIcon"
+        alt=""
+      />
+      <div class="txt-container">
+        <h4 :class="{ light: !isOpen(idx) }">{{ quest.txt }}</h4>
+        <p>{{ quest.explanations }}</p>
+      </div>
+    </div>
+    <button @click="goToTest" class="global-confirm-btn play-again-btn">שחק שוב</button>
+  </section>
 </template>
 
 <script>
@@ -24,35 +35,37 @@ export default {
   data() {
     return {
       lesson: null,
-      opens: []
+      opens: [],
     };
   },
   created() {
-      let { idx } = this.$route.params
-      idx = +idx
-      this.lesson = animalService.getTestByIdx(this.pet, idx)
-      console.log(this.lesson);
+    let { idx } = this.$route.params;
+    idx = +idx;
+    this.lesson = animalService.getTestByIdx(this.pet, idx);
   },
   methods: {
-    openDrawer(idx){
-        if(this.opens.includes(idx)){
-            const index = this.opens.findIndex( i => i === idx)
-            this.opens.splice(index, 1)
-            return 
-        }
-        this.opens.push(idx)
+    openDrawer(idx) {
+      if (this.opens.includes(idx)) {
+        const index = this.opens.findIndex((i) => i === idx);
+        this.opens.splice(index, 1);
+        return;
+      }
+      this.opens.push(idx);
     },
-    isOpen(idx){
-        return this.opens.includes(idx)
+    isOpen(idx) {
+      return this.opens.includes(idx);
+    },
+    goToTest(){
+      this.$router.push('/test')
     }
   },
   computed: {
     pet() {
       return this.$store.getters.pet;
     },
-    arrowDownIcon(){
-        return require('@/assets/icons/arrowDown.svg')
-    }
+    arrowDownIcon() {
+      return require("@/assets/icons/arrowDown.svg");
+    },
   },
 };
 </script>

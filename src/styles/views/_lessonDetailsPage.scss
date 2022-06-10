@@ -1,6 +1,10 @@
 .lesson-details-page {
     padding: 0 16px;
     min-height: 100vh;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 
     .title {
         text-align: center;
@@ -58,6 +62,11 @@
                 // font-size: 16px;
             }
         }
+    }
+
+    .play-again-btn{
+        position: absolute;
+        bottom: 40px;
     }
 
     .fit {

@@ -26,6 +26,7 @@ export default {
     },
     style(){
       if(!this.pet) return null
+      if(this.$route.name === 'select-animal') return 'white'
       const map = {
         dog: '#FFE066',
         cat: '#D152FF',

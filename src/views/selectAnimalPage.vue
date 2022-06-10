@@ -73,7 +73,7 @@ export default {
         currTest: 0,
         points: 0,
         savedTips: [],
-        achievs: []
+        isDone: false
       }
       this.$store.commit({ type: 'updatePet', pet })
       this.$router.push('/')

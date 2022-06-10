@@ -1,6 +1,6 @@
 <template>
   <section class="notif-page">
-    <sub-page-nav txt="התראות" />
+    <sub-page-nav block txt="התראות" @back="handleBack" />
     <div class="main" v-if="notifs && !selected">
       <p class="main-title">מה תרצו שנזכיר לכם?</p>
       <div class="card-container">
@@ -10,7 +10,7 @@
           v-for="notif in notifs"
           :key="notif.id"
         >
-          <img :src="boneIcon" alt="" />
+          <img :src="boneIcon(notif.id)" alt="" />
           <div class="txt-container">
             <h3>{{ notif.title }}</h3>
             <p>{{ notif.desc }}</p>
@@ -21,10 +21,7 @@
     <div class="details-container" v-if="selected">
         <div class="header">
             <p class="main-title">{{selected.id}}:</p>
-            <div class="temp">
-                <p>חזור</p>
-                <img @click="setSelectedNotif(null)" :src="backIcon" alt="">
-            </div>
+            <p class="edit">עריכה</p>
         </div>
         <div class="notif-container">
             <div class="notif" v-for="notif in selected.times" :key="notif.title">
@@ -60,13 +57,27 @@ export default {
     setSelectedNotif(notif) {
       this.selected = notif;
     },
+    handleBack(){
+      if(this.selected){
+        this.selected = null
+      }else{
+        this.$router.go(-1)
+      }
+    },
+    boneIcon(id) {
+      const map = {
+        'חטיפים': 'bone',
+        'טיולים' : 'ball',
+        'אוכל': 'food',
+        'כדור' : 'pill',
+        'טיפוח': 'heart'
+      }
+      return require(`@/assets/icons/notif/${map[id]}.svg`);
+    },
   },
   computed: {
     pet() {
       return this.$store.getters.pet;
-    },
-    boneIcon() {
-      return require("@/assets/icons/bone.svg");
     },
     backIcon(){
         return require('@/assets/icons/back.svg')

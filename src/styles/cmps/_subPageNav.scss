@@ -1,6 +1,7 @@
 .sub-page-nav{
     padding: 26px 0;
     position: relative;
+    width: 100%;
     h3{
         font-size: 16px;
         text-align: center;
@@ -12,4 +13,8 @@
         right: 4px;
         top: 27px;
     }
+}
+
+.padding-sub-nav{
+    right: 20px !important;
 }

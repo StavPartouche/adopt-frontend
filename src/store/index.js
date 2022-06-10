@@ -27,6 +27,10 @@ export default new Vuex.Store({
       state.pet.currTest++
       storageService.savePet(state.pet)
     },
+    updatePetIsDone(state){
+      state.pet.isDone = true
+      storageService.savePet(state.pet)
+    }
   },
   actions: {},
   modules: {},

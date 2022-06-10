@@ -3,10 +3,10 @@
     <home-nav-bar @changePet="imgKey++"></home-nav-bar>
     <div class="home-page-main">
       <div class="txt-container">
-        <p>בואו נלמד יחד איך מגדלים בעלי חיים!</p>
-        <h3>צברו 100 כפות</h3>
+        <p>{{pTxt}}</p>
+        <h3 :class="{'lh': pet.isDone}">{{h3Txt}}</h3>
       </div>
-      <div class="home-points-container">
+      <div class="home-points-container" :class="{'mt': pet.isDone}">
         <h2 class="home-points">{{ points }}</h2>
         <img :src="powIcon" alt="" />
       </div>
@@ -24,7 +24,10 @@
           :key="idx"
           @click="openLesson(idx)"
         >
-          <h2 class="lesson-num">{{lessonNum(idx)}}</h2>
+          <div class="num-container">
+            <h2 class="lesson-num" :class="{'down': idx === 1 && pet.isDone }">{{lessonNum(idx)}}</h2>
+            <p class="timer" v-if="idx === 1 && pet.isDone">11:59</p>
+          </div>
           <div class="info-container">
             <h3>{{ lesson.title }}</h3>
             <div class="sub-info">
@@ -141,20 +144,20 @@ export default {
       return require("@/assets/icons/lock.svg");
     },
     isAvailableeGame(){
-        return true
+        return !this.pet.isDone
     },
     styleStartBtn(){
       return null
-      // if(!this.pet) return null
-      // const map = {
-      //   dog: '#FFE066',
-      //   cat: '#D152FF',
-      //   rabbit: '#EB50B4',
-      //   fish: '#5CE0FF',
-      //   bird: '#4EEBC0',
-      // }
-      // return `border: 6px solid ${map[this.pet.type]};`
-    }
+    },
+    pTxt(){
+      if(!this.pet.isDone) return 'בואו נלמד יחד איך מגדלים בעלי חיים!'
+      return 'המשחק הבא יפתח מחר'
+    },
+    h3Txt(){
+       if(!this.pet.isDone) return 'ציברו 100 כפות'
+       return 'סיימתם את השיעור הראשון, כל הכבוד!'
+    },
+    
   },
 };
 </script>

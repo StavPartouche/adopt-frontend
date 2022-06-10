@@ -7,6 +7,7 @@
     justify-content: flex-start;
     scroll-behavior: smooth;
     background-color: white;
+    position: relative;
     .full-width{
         width: 100%;
         height: 100%;
@@ -22,7 +23,7 @@
     .slides-img{
         width: 100%;
         height: 445px;
-        margin-bottom: 41px;
+        margin-bottom: 17px;
         height: 75%;
         transform: translateY(88px);
     }
