@@ -116,8 +116,9 @@
 
         .spark{
             position: absolute;
-            top: -30px;
-            right: 125px;
+            top: -4%;
+            right: 50.6%;
+            transform: translate(50%, 0);
             z-index: -1;
         }
 
@@ -148,6 +149,6 @@
     }
     .bg{
         position: absolute;
-        bottom: 0;
+        top: 180px;
     }
 }

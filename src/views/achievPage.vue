@@ -24,36 +24,36 @@
         <lottie class="animal left" :options="lottieAnimalOptions" :height="210" :width="210"/>
         <lottie class="animal right" :options="lottieAnimalOptions" :height="210" :width="210"/>
       </div>
+      <div class="achiev-container">
+          <lottie v-if="pet.isDone" class="animation spark" :options="sparkLottirOptions" :height="100" :width="170"/>
+          <div v-if="pet.isDone" class="achiev">
+              <img :src="achive1ColoredIcon" alt="" />
+              <h3 class="achive-title">משחק ראשון</h3>
+              <p class="achive-sub">התחלתם וסיימתם, כל הכבוד!</p>
+          </div>
+          <div v-else class="achiev">
+              <img :src="achive1Icon" alt="" />
+              <h3 class="achive-title">משחק ראשון</h3>
+              <p class="achive-sub">התחלתם וסיימתם, כל הכבוד!</p>
+          </div>
+          <div class="achiev">
+              <img :src="achive2Icon" alt="" />
+              <h3 class="achive-title">העשרה</h3>
+              <p class="achive-sub">התעניינתם בטיפים, כל הכבוד!</p>
+          </div>
+          <div class="achiev">
+              <img :src="achive3Icon" alt="" />
+              <h3 class="achive-title">רצף</h3>
+              <p class="achive-sub">שמרתם על רצף 5 ימים, כל הכבוד!</p>
+          </div>
+          <div class="achiev">
+              <img :src="achive4Icon" alt="" />
+              <h3 class="achive-title">תשובה נכונה</h3>
+              <p class="achive-sub">השלמתם משחק שלם מבלי לטעות, כל הכבוד!</p>
+          </div>
+      </div>
+      <img class="bg" :src="bg" alt="">
     </div>
-    <div class="achiev-container">
-        <lottie v-if="pet.isDone" class="animation spark" :options="sparkLottirOptions" :height="100" :width="170"/>
-        <div v-if="pet.isDone" class="achiev">
-            <img :src="achive1ColoredIcon" alt="" />
-            <h3 class="achive-title">משחק ראשון</h3>
-            <p class="achive-sub">התחלתם וסיימתם, כל הכבוד!</p>
-        </div>
-        <div v-else class="achiev">
-            <img :src="achive1Icon" alt="" />
-            <h3 class="achive-title">משחק ראשון</h3>
-            <p class="achive-sub">התחלתם וסיימתם, כל הכבוד!</p>
-        </div>
-        <div class="achiev">
-            <img :src="achive2Icon" alt="" />
-            <h3 class="achive-title">העשרה</h3>
-            <p class="achive-sub">התעניינתם בטיפים, כל הכבוד!</p>
-        </div>
-        <div class="achiev">
-            <img :src="achive3Icon" alt="" />
-            <h3 class="achive-title">רצף</h3>
-            <p class="achive-sub">שמרתם על רצף 5 ימים, כל הכבוד!</p>
-        </div>
-        <div class="achiev">
-            <img :src="achive4Icon" alt="" />
-            <h3 class="achive-title">תשובה נכונה</h3>
-            <p class="achive-sub">השלמתם משחק שלם מבלי לטעות, כל הכבוד!</p>
-        </div>
-    </div>
-    <img class="bg" :src="bg" alt="">
   </section>
 </template>
 
