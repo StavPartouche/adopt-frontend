@@ -70,7 +70,10 @@ export default {
         'טיולים' : 'ball',
         'אוכל': 'food',
         'כדור' : 'pill',
-        'טיפוח': 'heart'
+        'טיפוח': 'heart',
+        'מים': 'water',
+        'ניקיון': 'clean',
+        'ניקוי ארגז החול': 'clean'
       }
       return require(`@/assets/icons/notif/${map[id]}.svg`);
     },

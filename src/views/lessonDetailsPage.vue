@@ -9,9 +9,9 @@
       :class="{ fit: isOpen(idx) }"
       v-for="(quest, idx) in lesson.questions"
       :key="idx"
+      @click="openDrawer(idx)"
     >
       <img
-        @click="openDrawer(idx)"
         :class="{ upside: isOpen(idx) }"
         :src="arrowDownIcon"
         alt=""

@@ -26,7 +26,6 @@
       <button @click="handlePickAnimal" class="global-confirm-btn select-age-btn" :class="{'disable-confirm-btn': !selectedAgeOption}">המשך</button>
     </div>
     <button @click="confirmSelectAnimal" class="confirm-btn" v-if="animal && !showAnimalAgeOptions && !showInput">{{aniamlName}}</button>
-    <!-- <img @click="confirmSelectAnimal" v-if="animal && !showAnimalAgeOptions" class="confirm-btn" :src="buttonIcon" alt=""> -->
   </section>
 </template>
 
@@ -94,7 +93,7 @@ export default {
       const map = {
         dog: 'כלב',
         cat: 'חתול',
-        bird: 'ציפור',
+        bird: 'תוכי',
         fish: 'דג',
         rabbit: 'ארנב'
       }

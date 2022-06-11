@@ -30,11 +30,11 @@
           </div>
           <div class="info-container">
             <h3>{{ lesson.title }}</h3>
-            <div class="sub-info">
+            <div v-if="idx !== lessons.length - 1" class="sub-info">
               <img :src="infoIcon" alt="" />
               <p>{{ lesson.desc }}</p>
             </div>
-            <div class="sub-info">
+            <div v-if="idx !== lessons.length - 1" class="sub-info">
               <img :src="clockIcon" alt="" />
               <p>{{ numOfQuests(idx) }} שאלות</p>
             </div>

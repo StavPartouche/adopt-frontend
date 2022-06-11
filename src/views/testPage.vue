@@ -255,7 +255,7 @@ export default {
     },
     helpTxt() {
       if (this.isMultiSelect) return "יותר מתשובה אחת";
-      if(this.isSelectCar) return 'החליקו על מנת לראות עוד תשובות'
+      if(this.isSelectCar) return 'החליקו לתשובות נוספות'
       return "השלימו את תחילת המשפט:";
     },
     isActiveBtn() {
