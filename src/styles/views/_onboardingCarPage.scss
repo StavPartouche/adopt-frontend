@@ -79,55 +79,71 @@
                 display: flex;
                 flex-direction: column;
                 align-items: center;
+                justify-content: center;
                 margin-top: -14px !important;
 
                 .onboarding-instructions {
-                    width: 300px;
+                    width: 100%;
                     line-height: 27.3px;
                     font-size: 28px;
                     font-weight: 700;
                     font-family: SimplerPro-Bold;
                     padding: 0 16px !important;
+                    margin-top: 23px;
+                    position: relative;
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+
+                    p{
+                        position: absolute;
+                        top: -30px;
+                        font-size: 20px;
+                        font-weight: 400;
+                        // margin-bottom: 12px;
+                        letter-spacing: 0.5px;
+
+                    }
                 }
             }
 
         }
 
-        .slide1 {
-            p {
-                font-size: 20px;
-                font-weight: 400;
-                margin-bottom: 12px;
-                letter-spacing: 0.5px;
-            }
-        }
+        // .slide1 {
+        //     p {
+        //         font-size: 20px;
+        //         font-weight: 400;
+        //         margin-bottom: 12px;
+        //         letter-spacing: 0.5px;
+        //     }
+        // }
 
-        .slide2 {
-            .onboarding-instructions {
-                margin-top: 20px;
-            }
-            .nerrow{
-                width: 90% !important;
-            }
-        }
+        // .slide2 {
+        //     .onboarding-instructions {
+        //         margin-top: 20px;
+        //     }
+        //     .nerrow{
+        //         width: 90% !important;
+        //     }
+        // }
 
-        .slide3 {
-            .onboarding-instructions {
-                margin-top: 20px;
-            }
-            .nerrow{
-                width: 90% !important;
-            }
-        }
+        // .slide3 {
+        //     .onboarding-instructions {
+        //         margin-top: 20px;
+        //     }
+        //     .nerrow{
+        //         width: 90% !important;
+        //     }
+        // }
 
-        .slide4 {
-            p {
-                font-size: 20px;
-                font-weight: 400;
-                margin-bottom: 12px;
-                letter-spacing: 0.5px;
-            }
-        }
+        // .slide4 {
+        //     p {
+        //         font-size: 20px;
+        //         font-weight: 400;
+        //         margin-bottom: 12px;
+        //         letter-spacing: 0.5px;
+        //     }
+        // }
 
         .back {
             transform: translateX(100%);

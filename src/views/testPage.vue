@@ -37,8 +37,8 @@
       </div>
       <p class="test-quest-counter">{{ currQuestIdx + 1 }}/{{ questLength }}</p>
       <h2 class="test-quest">
-        {{ currQuest.txt }}?
-        <p class="help" v-if="this.isMultiSelect || this.isComplete">
+        {{ currQuest.txt }}
+        <p class="help" v-if="this.isMultiSelect || this.isComplete || this.isSelectCar">
           {{ helpTxt }}
         </p>
       </h2>
@@ -60,11 +60,13 @@
           <p class="option-txt">{{ answer.txt }}</p>
         </div>
       </div>
-      <carousel v-else :perPage="1" navigationEnabled :paginationEnabled="false">
+      <carousel v-if="isSelectCar" :perPage="1" :paginationEnabled="false">
         <slide v-for="(answer, idx) in currQuest.answers" :key="idx"> 
           <div class="slide" :class="{'highlight-option-slide': highlightAns(idx)}">
             <p>{{answer.txt}}</p>
             <img @click="selectAns(idx)" :src="vIcon" alt="">
+            <img v-if="idx !== currQuest.answers.length - 1" class="arrow" :src="arrow" alt="">
+            <img v-if="idx !== 0" class="arrow left" :src="arrow" alt="">
           </div>
         </slide>
       </carousel>
@@ -236,15 +238,24 @@ export default {
     },
     ansToShow(){
       if(this.isMultiSelect){
-        const stam = this.currQuest.answers.filter(a => a.isCorrect).map(a => a.txt).join(', ')
-        return stam + '.'
-      }else{
+        const original = this.currQuest.answers.filter(a => a.isCorrect)
+        let copy = JSON.parse(JSON.stringify(original))
+        copy = copy.slice(0 , original.length - 1)
+        const copyTxt = copy.map(a => a.txt).join(', ')
+        const last = original[original.length - 1].txt
+        return copyTxt + ' ו' + last + '.'
+      }else if(this.isComplete){
+        const correct = this.currQuest.answers.find( a => a.isCorrect).txt
+        const trimmed = correct.slice(0, -3)
+        return trimmed + ' ' + this.currQuest.end
+      } else{
         const correct = this.currQuest.answers.find( a => a.isCorrect)
-        return correct.txt
+        return correct.txt + '.'
       }
     },
     helpTxt() {
       if (this.isMultiSelect) return "יותר מתשובה אחת";
+      if(this.isSelectCar) return 'החליקו על מנת לראות עוד תשובות'
       return "השלימו את תחילת המשפט:";
     },
     isActiveBtn() {
@@ -271,6 +282,9 @@ export default {
     smallVIcon(){
       return require('@/assets/icons/smallV.svg')
     },
+    arrow(){
+      return require('@/assets/icons/back.svg')
+    }
   },
   created() {
     this.testDetails = animalService.getCurrTest(this.pet);

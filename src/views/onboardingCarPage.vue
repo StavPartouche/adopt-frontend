@@ -10,9 +10,9 @@
         <div class="slide slide1" :class="slidePosClass(0)">
           <img :src="slide1Img" alt="" class="slide-img img1" />
           <div class="text-container">
-            <p>רוצים ללמוד על בעל חיים?</p>
             <h2 class="onboarding-instructions">
               בואו ללמוד כמה דברים שחשוב לדעת
+              <p>רוצים ללמוד על בעל חיים?</p>
             </h2>
           </div>
         </div>
@@ -33,8 +33,10 @@
         <div class="slide slide4" :class="slidePosClass(3)">
           <img :src="slide4Img" alt="" class="slide-img" />
           <div class="text-container">
-            <p>אספתם 100 נקודות?</p>
-            <h2 class="onboarding-instructions">אתם מוכנים!</h2>
+            <h2 class="onboarding-instructions">
+              אתם מוכנים! בואו נתחיל ללמוד ולגלות
+              <p>אספתם 100 כפות?</p>
+            </h2>
           </div>
         </div>
       </div>

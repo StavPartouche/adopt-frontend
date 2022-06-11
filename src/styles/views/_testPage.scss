@@ -255,4 +255,19 @@
     .highlight-option-slide{
         border: 3px solid black;
     }
+
+    .arrow{
+        position: absolute;
+        top: 50%;
+        right: 12px;
+        height: 15px;
+        width: 8.5px !important;
+        bottom: unset !important;
+    }
+
+    .left{
+        transform: scaleX(-1);
+        right: unset;
+        left: 12px;
+    }
 }
