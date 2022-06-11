@@ -10,7 +10,7 @@
           </div>
           <div @click="handleNewPet" class="option">
             <img :src="plusIcon" alt="">
-            <p>בחירה חדשה</p>
+            <p class="size">בחירה חדשה</p>
           </div>
         </div>
       </div>

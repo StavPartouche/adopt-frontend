@@ -1402,10 +1402,6 @@ const data = {
                                     isCorrect: false
                                 },
                                 {
-                                    txt: 'תומכים בראשו...',
-                                    isCorrect: false
-                                },
-                                {
                                     txt: 'אוחזים בבטנו בשתי הידיים...',
                                     isCorrect: false
                                 },
