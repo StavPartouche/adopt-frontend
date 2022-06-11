@@ -53,6 +53,7 @@
           </div>
       </div>
       <img class="bg" :src="bg" alt="">
+      <div class="footer"></div>
     </div>
   </section>
 </template>
@@ -87,7 +88,7 @@ export default {
       return this.$store.getters.pet
     },
     achive1ColoredIcon() {
-      return require(`@/assets/icons/achivRibbons/1-${this.pet.type}.svg`);
+      return require(`@/assets/icons/achivRibbons/1-${this.pet.type}.png`);
     },
     achive1Icon() {
       return require("@/assets/icons/achivRibbons/1.svg");

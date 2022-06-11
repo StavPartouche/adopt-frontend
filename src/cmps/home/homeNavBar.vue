@@ -5,7 +5,7 @@
           <img class="arrow" :class="{'rotate': isShowOpt}" :src="arrowDown"  @click="toggleShowOpt" alt="">
         <div class="options" :class="{'show': isShowOpt}">
           <div @click="handleSwitchPet(pet.name)" v-for="pet in petsToShow" :key="pet.name" class="option">
-            <img :src="getPetIcon(pet.type)" alt="">
+            <img class="small-animal" :src="getPetIcon(pet.type)" alt="">
             <p>{{pet.name}}</p>
           </div>
           <div @click="handleNewPet" class="option">

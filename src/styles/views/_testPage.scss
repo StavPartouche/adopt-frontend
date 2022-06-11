@@ -27,6 +27,7 @@
                 text-align: center;
                 margin-bottom: 34px;
                 font-family: EditorSans-Semibold;
+                letter-spacing: 0.5px;
                 width: 180px;
                 z-index: 2;
             }
@@ -95,6 +96,7 @@
 
     .test-quest-counter{
         font-family: EditorSans-Semibold;
+        letter-spacing: 0.5px;
         font-size: 16px;
         letter-spacing: 4px;
         margin-bottom: 31px;
@@ -102,6 +104,7 @@
 
     .test-quest{
         font-family: EditorSans-Semibold;
+        letter-spacing: 0.5px;
         font-size: 32px;
         text-align: center;
         line-height: 113.5%;
@@ -137,6 +140,7 @@
             .option-txt{
                 font-family: SimplerPro-Regular;
                 font-size: 20px;
+                line-height: 24px;
             }
         }
     }
