@@ -126,6 +126,7 @@ export default {
         }
         this.isCorrectAns = this.selectedAns.isCorrect;
       } else {
+        if(!this.selectedAnsIdx || !this.selectedAnsIdx.length) return
         const isAllCorrect = this.selectedAnsIdx.every((ansIdx) => {
           return this.currQuest.answers[ansIdx].isCorrect;
         });

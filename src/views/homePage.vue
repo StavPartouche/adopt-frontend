@@ -91,6 +91,7 @@ export default {
   },
   methods:{
     goToTest(){
+      if(this.pet.isDone) return 
       this.$router.push('/test')
     },
     numOfQuests(idx) {
