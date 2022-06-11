@@ -2,10 +2,10 @@
   <section class="test-page">
     <template v-if="isShowFinal">
       <div class="final-container">
-        <h2 class="final-title">
-          השיעור הושלם!
+        <div class="final-title-container">
+          <h2 class="final-title">השיעור הושלם!</h2>
           <lottie class="animation spark" :options="sparkLottirOptions" :height="350" :width="350"/>
-        </h2>
+        </div>
         <lottie class="animation" :options="finalLottieOptions" :height="350" :width="350"/>
         <div class="data-container">
           <div class="data">

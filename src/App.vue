@@ -42,6 +42,8 @@ export default {
     if(pet){
       this.$store.commit({ type: 'updatePet', pet })
       return
+    }else{
+      this.$router.push('/onboarding')
     }
   }
 };
