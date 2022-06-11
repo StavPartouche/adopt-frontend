@@ -60,13 +60,13 @@
           <p class="option-txt">{{ answer.txt }}</p>
         </div>
       </div>
-      <carousel v-if="isSelectCar" :perPage="1" :paginationEnabled="false">
+      <carousel v-if="isSelectCar" :perPage="1">
         <slide v-for="(answer, idx) in currQuest.answers" :key="idx"> 
           <div class="slide" :class="{'highlight-option-slide': highlightAns(idx)}">
             <p>{{answer.txt}}</p>
             <img @click="selectAns(idx)" :src="vIcon" alt="">
-            <img v-if="idx !== currQuest.answers.length - 1" class="arrow" :src="arrow" alt="">
-            <img v-if="idx !== 0" class="arrow left" :src="arrow" alt="">
+            <!-- <img v-if="idx !== currQuest.answers.length - 1" class="arrow" :src="arrow" alt="">
+            <img v-if="idx !== 0" class="arrow left" :src="arrow" alt=""> -->
           </div>
         </slide>
       </carousel>

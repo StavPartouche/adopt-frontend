@@ -87,19 +87,19 @@ export default {
       return this.$store.getters.pet
     },
     achive1ColoredIcon() {
-      return require(`@/assets/icons/achivRibbons/1-${this.pet.type}.png`);
+      return require(`@/assets/icons/achivRibbons/1-${this.pet.type}.svg`);
     },
     achive1Icon() {
-      return require("@/assets/icons/achivRibbons/1.png");
+      return require("@/assets/icons/achivRibbons/1.svg");
     },
     achive2Icon() {
-      return require("@/assets/icons/achivRibbons/2.png");
+      return require("@/assets/icons/achivRibbons/2.svg");
     },
     achive3Icon() {
-      return require("@/assets/icons/achivRibbons/3.png");
+      return require("@/assets/icons/achivRibbons/3.svg");
     },
     achive4Icon() {
-      return require("@/assets/icons/achivRibbons/4.png");
+      return require("@/assets/icons/achivRibbons/4.svg");
     },
     bg(){
       return require('@/assets/bgcs/achivBg.svg')
