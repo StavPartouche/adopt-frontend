@@ -1700,7 +1700,7 @@ function getAnimalAgeOptions(animal) {
     })
 }
 function getCurrTest(petDetails) {
-    return data[petDetails.type][petDetails.ageIdx].tests[petDetails.currTest]
+    return data[petDetails.type][petDetails.ageIdx].tests[0]
 }
 function getTestByIdx(petDetails, testIdx) {
     return data[petDetails.type][petDetails.ageIdx].tests[testIdx]
