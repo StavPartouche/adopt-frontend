@@ -11,22 +11,22 @@
           <img :src="slide1Img" alt="" class="slide-img img1" />
           <div class="text-container">
             <h2 class="onboarding-instructions">
-              בואו ללמוד כמה דברים שחשוב לדעת
-              <p>רוצים ללמוד על בעל חיים?</p>
+              בואו נלמד כמה דברים שחשוב לדעת.
+              <p>רוצים לגדל חיים מחמד?</p>
             </h2>
           </div>
         </div>
         <div class="slide slide2" :class="slidePosClass(1)">
           <img :src="slide2Img" alt="" class="slide-img" />
           <div class="text-container">
-            <h2 class="onboarding-instructions nerrow">נלמד מוטרינרים על החיה אותה נרצה לגדל</h2>
+            <h2 class="onboarding-instructions nerrow">כל המידע נכתב על ידי מומחים ווטרינרים.</h2>
           </div>
         </div>
         <div class="slide slide3" :class="slidePosClass(2)">
           <img :src="slide3Img" alt="" class="slide-img" />
           <div class="text-container">
             <h2 class="onboarding-instructions nerrow">
-              נענה על שאלות חדשות כל יום ונצבור נקודות
+              נענה כל יום על שאלות חדשות ונצבור נקודות
             </h2>
           </div>
         </div>
@@ -34,8 +34,8 @@
           <img :src="slide4Img" alt="" class="slide-img" />
           <div class="text-container">
             <h2 class="onboarding-instructions">
-              אתם מוכנים! בואו נתחיל ללמוד ולגלות
-              <p>אספתם 100 כפות?</p>
+              אתם מוכנים! בואו נתחיל ללמוד ולגלות.
+              <p>צברתם 100 כפות?</p>
             </h2>
           </div>
         </div>
