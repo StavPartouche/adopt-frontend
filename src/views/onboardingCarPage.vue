@@ -45,7 +45,6 @@
       </button>
     </div>
     <div v-else class="welcome">
-      <img :src="logoIcon" alt="" />
       <img class="logo" :src="clickerLogoIcon" alt="" />
     </div>
   </section>
