@@ -26,7 +26,7 @@
           <img :src="slide3Img" alt="" class="slide-img" />
           <div class="text-container">
             <h2 class="onboarding-instructions nerrow">
-              נענה כל יום על שאלות חדשות ונצבור נקודות
+              נענה כל יום על שאלות חדשות ונצבור נקודות.
             </h2>
           </div>
         </div>
