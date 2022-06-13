@@ -60,7 +60,7 @@
           <p class="option-txt">{{ answer.txt }}</p>
         </div>
       </div>
-      <carousel v-if="isSelectCar" :perPage="1">
+      <carousel v-if="isSelectCar" :perPage="1" :key="currQuestIdx">
         <slide v-for="(answer, idx) in currQuest.answers" :key="idx"> 
           <div class="slide" :class="{'highlight-option-slide': highlightAns(idx)}">
             <p>{{answer.txt}}</p>

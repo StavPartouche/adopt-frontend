@@ -217,6 +217,33 @@ const data = {
                             ],
                             explanations: 'הוציאו מהבית או העבירו למקום גבוה כל דבר שעלול לסכן את בטחונו של כלבכם.'
                         },
+                        { // Question 3
+                            type: 'select-car',
+                            txt: 'אילו קערות אוכל ומים נעדיף?',
+                            answers: [
+                                {
+                                    txt: 'קערות פלסטיק',
+                                    isCorrect: false
+                                },
+                                {
+                                    txt: 'קערות נירוסטה',
+                                    isCorrect: true
+                                },
+                                {
+                                    txt: 'קערות זכוכית',
+                                    isCorrect: false
+                                },
+                                {
+                                    txt: 'קערות בד',
+                                    isCorrect: false
+                                },
+                                {
+                                    txt: 'קערות גומי',
+                                    isCorrect: false
+                                },
+                            ],
+                            explanations: 'קערות נירוסטה קלות לניקוי ונשמרות לאורך זמן, הקפידו על בחירת כלי שתיה בעל קיבולת מתאימה לגודל הכלב.'
+                        },
                         { // Question 2
                         type: 'multi-select',
                         txt: 'מהן שלושת הצעצועים שכל כלב חייב?',
@@ -255,33 +282,6 @@ const data = {
                             }
                         ],
                         explanations: 'צעצועים עוזרים לכלב חדש להסתגל לסביבה לא מוכרת, מונעים שעמום ומעודדים פעילות גופנית.'
-                        },
-                        { // Question 3
-                            type: 'select-car',
-                            txt: 'אילו קערות אוכל ומים נעדיף?',
-                            answers: [
-                                {
-                                    txt: 'קערות פלסטיק',
-                                    isCorrect: false
-                                },
-                                {
-                                    txt: 'קערות נירוסטה',
-                                    isCorrect: true
-                                },
-                                {
-                                    txt: 'קערות זכוכית',
-                                    isCorrect: false
-                                },
-                                {
-                                    txt: 'קערות בד',
-                                    isCorrect: false
-                                },
-                                {
-                                    txt: 'קערות גומי',
-                                    isCorrect: false
-                                },
-                            ],
-                            explanations: 'קערות נירוסטה קלות לניקוי ונשמרות לאורך זמן, הקפידו על בחירת כלי שתיה בעל קיבולת מתאימה לגודל הכלב.'
                         },
                         { // Question 4
                             type: 'select-car',
