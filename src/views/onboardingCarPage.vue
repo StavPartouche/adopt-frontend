@@ -44,7 +44,7 @@
         {{ btnTxt }}
       </button>
     </div>
-    <div v-else class="welcome">
+    <div v-else class="welcome" @click="isShowSlides = true">
       <img class="logo" :src="clickerLogoIcon" alt="" />
     </div>
   </section>
@@ -60,9 +60,9 @@ export default {
     };
   },
   created() {
-    setTimeout(() => {
-      this.isShowSlides = true;
-    }, 1500);
+    // setTimeout(() => {
+    //   this.isShowSlides = true;
+    // }, 1500);
   },
   methods: {
     slideFor() {
