@@ -6,6 +6,12 @@
     padding: 0 16px;
     position: relative;
     overflow: hidden;
+
+    .back-arrow{
+        position: absolute;
+        right: 16px;
+        top: 28px;
+    }
     
     .final-container{
         display: flex;
@@ -78,6 +84,7 @@
     
 
     .test-progress-bar{
+        position: relative;
         margin-top: 33px;
         margin-bottom: 31px;
         width: 228px;

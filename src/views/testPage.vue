@@ -32,6 +32,7 @@
       </div>
     </template>
     <template v-else>
+      <img @click="navBack" class="back-arrow" :src="arrow" alt="">
       <div class="test-progress-bar">
         <div class="curr-progress" :style="progress"></div>
       </div>
@@ -187,6 +188,9 @@ export default {
       this.$store.commit({ type: "updatePetCurrTest" });
       this.$store.commit({ type: "updatePetIsDone" });
       this.$router.push("/achievement");
+    },
+    navBack(){
+      this.$router.push('/')
     }
   },
   computed: {
