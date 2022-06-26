@@ -1,5 +1,6 @@
 <template>
   <section class="test-page">
+    <img @click="navBack" class="back-arrow" :class="{'op0': isShowFinal}" :src="arrow" alt="">
     <template v-if="isShowFinal">
       <div class="final-container">
         <div class="final-title-container">
@@ -32,7 +33,6 @@
       </div>
     </template>
     <template v-else>
-      <img @click="navBack" class="back-arrow" :src="arrow" alt="">
       <div class="test-progress-bar">
         <div class="curr-progress" :style="progress"></div>
       </div>
