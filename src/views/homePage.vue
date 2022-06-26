@@ -42,10 +42,11 @@
           <div class="black"></div>
           <div class="flow">
             <div class="circle" :class="{'empty': !isLessonOpen(idx)}"></div>
-            <div class="line"></div>
+            <div class="line" v-if="idx !== lessons.length - 1"></div>
           </div>
           <img class="lock-icon" v-if="!isLessonOpen(idx)" :src="lockIcon" alt="">
         </div>
+        <h2 @click="resetGame" class="reset-game-btn">איפוס משחק</h2>
       </div>
 
 
@@ -111,6 +112,10 @@ export default {
         return 
       }
       this.$router.push(`/lesson/${idx}`)
+    },
+    resetGame(){
+      localStorage.clear();
+      location.reload();
     }
   },
   computed: {
